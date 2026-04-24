@@ -1,8 +1,6 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const sectorLabel: Record<string, string> = {
   groothandel:    "Groothandel / distributie",
   productie:      "Productie / maakbedrijf",
@@ -39,6 +37,7 @@ const annualHours: Record<string, number> = {
 
 export async function POST(req: Request) {
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const body = await req.json();
     const { sector, pijnpunt, methode, uren, naam, email, bedrijf } = body;
 
