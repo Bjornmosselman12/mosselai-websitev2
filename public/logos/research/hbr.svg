@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 36" width="160" height="36">
+  <rect x="0" y="2" width="36" height="26" rx="2" fill="#CC0000"/>
+  <text x="3" y="21" font-family="-apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="14" font-weight="800" fill="#ffffff">HBR</text>
+  <text x="44" y="14" font-family="-apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="8" font-weight="700" fill="#1a1a1a" letter-spacing="0.8">HARVARD</text>
+  <text x="44" y="23" font-family="-apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="8" font-weight="400" fill="#5F5E5A" letter-spacing="0.5">BUSINESS REVIEW</text>
+</svg>

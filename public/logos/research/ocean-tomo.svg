@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 36" width="160" height="36">
+  <circle cx="10" cy="18" r="8" fill="none" stroke="#1E5C8E" stroke-width="2"/>
+  <circle cx="10" cy="18" r="3" fill="#1E5C8E"/>
+  <text x="26" y="16" font-family="-apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="13" font-weight="700" fill="#1E5C8E" letter-spacing="0.5">OCEAN TOMO</text>
+  <text x="26" y="29" font-family="-apple-system, BlinkMacSystemFont, Arial, sans-serif" font-size="8" font-weight="400" fill="#5F5E5A" letter-spacing="0.3">A J.S. HELD COMPANY</text>
+</svg>
