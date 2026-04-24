@@ -28,15 +28,24 @@ export default function Hero() {
         alignItems: "center",
       }}
     >
+      <style>{`
+        .hero-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 56px;
+          align-items: center;
+        }
+        .hero-photo { display: block; }
+        @media (max-width: 767px) {
+          .hero-grid {
+            grid-template-columns: 1fr;
+            gap: 32px;
+          }
+          .hero-photo { display: none; }
+        }
+      `}</style>
       <div className="max-w-6xl mx-auto px-6 w-full">
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "56px",
-            alignItems: "center",
-          }}
-        >
+        <div className="hero-grid">
 
           {/* ── Linker kolom ── */}
           <div>
@@ -54,9 +63,10 @@ export default function Hero() {
                 fontSize: "13px",
                 fontWeight: 500,
                 marginBottom: "20px",
+                whiteSpace: "nowrap",
               }}
             >
-              <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#4A7FC4", display: "inline-block" }} />
+              <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#4A7FC4", display: "inline-block", flexShrink: 0 }} />
               AI-automatisering · Hoeksche Waard
             </div>
 
@@ -65,7 +75,7 @@ export default function Hero() {
               className="animate-fade-in-up animate-delay-100"
               style={{
                 color: "#1E3A5F",
-                fontSize: "clamp(30px, 3.6vw, 52px)",
+                fontSize: "clamp(32px, 5vw, 52px)",
                 fontWeight: 500,
                 lineHeight: 1.1,
                 letterSpacing: "-0.025em",
@@ -164,7 +174,7 @@ export default function Hero() {
 
           {/* ── Rechter kolom: vergelijkingsfoto ── */}
           <div
-            className="animate-fade-in-up animate-delay-200"
+            className="hero-photo animate-fade-in-up animate-delay-200"
             style={{ position: "relative" }}
           >
             <div
