@@ -255,7 +255,7 @@ export default function QuizFunnel() {
           marginBottom: "32px",
         }}
       >
-        5 korte vragen. Geen verkooppraatje. Wel een eerlijk beeld van wat er automatisch kan lopen.
+        Vertel me wat je doet, en ik laat je zien wat ik daarvan kan automatiseren. Vijf vragen, twee minuten.
       </p>
 
       <ProgressBar current={0} />
