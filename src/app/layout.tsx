@@ -9,6 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  icons: { icon: "/favicon.png" },
   title: "MosselAI | AI-automatisering voor MKB in de Hoeksche Waard",
   description:
     "MosselAI bouwt concrete AI-automatiseringen voor MKB-ondernemers in de Hoeksche Waard. Geen buzzwords, geen beloftes, alleen werk dat eerder handmatig ging en nu vanzelf loopt.",

@@ -198,19 +198,16 @@ export default function OnderzoekFunnel() {
         AI-adoptie in het Nederlandse MKB: Onderzoek 2026
       </h1>
       <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.8, marginBottom: "12px" }}>
-        Iedereen heeft een mening over AI in het MKB. Niemand heeft data.
-      </p>
-      <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.8, marginBottom: "12px" }}>
         Ik onderzoek hoe Nederlandse MKB-bedrijven AI in 2026 echt gebruiken. Niet de hype, maar de praktijk. Welke processen lopen al automatisch, waar zit nog handmatig werk, en wat houdt mensen tegen?
       </p>
       <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.8, marginBottom: "24px" }}>
-        Vier minuten. In ruil stuur ik je het rapport zodra ik 50 respondenten heb. Vul je het in als ondernemer of beslisser? Dan maak ik bovendien, als je dat wilt, een gepersonaliseerde quick-scan voor jouw bedrijf binnen 48 uur.
+        In ruil stuur ik je het rapport zodra het klaar is. Vul je het in als ondernemer of beslisser? Dan maak ik bovendien, als je dat wilt, een gepersonaliseerde quick-scan voor jouw bedrijf.
       </p>
       <p style={{ color: "#5F5E5A", fontSize: "14px", fontStyle: "italic", marginBottom: "32px", lineHeight: 1.6 }}>
         Bjorn Mosselman, MosselAI · Hoeksche Waard
       </p>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", marginBottom: "32px" }}>
-        {["Anoniem", "4 minuten", "Gratis rapport"].map((t) => (
+        {["Gratis rapport", "Geen verplichtingen"].map((t) => (
           <span key={t} style={{ display: "inline-flex", alignItems: "center", gap: "5px", color: "#5F5E5A", fontSize: "13px" }}>
             <Check size={13} color="#4A7FC4" strokeWidth={3} />{t}
           </span>
@@ -599,7 +596,7 @@ export default function OnderzoekFunnel() {
               <input type="checkbox" checked={answers.wil_rapport} onChange={(e) => set("wil_rapport", e.target.checked)}
                 style={{ width: "18px", height: "18px", marginTop: "1px", flexShrink: 0, accentColor: "#1E3A5F", cursor: "pointer" }} />
               <span style={{ color: "#1E3A5F", fontSize: "14px", lineHeight: 1.5 }}>
-                <strong>Stuur me het benchmarkrapport</strong> zodra het klaar is (~30 dagen)
+                <strong>Stuur me het benchmarkrapport</strong> zodra het klaar is
               </span>
             </label>
           )}
@@ -644,7 +641,7 @@ export default function OnderzoekFunnel() {
                 <input type="checkbox" checked={answers.wil_quickscan} onChange={(e) => set("wil_quickscan", e.target.checked)}
                   style={{ width: "18px", height: "18px", marginTop: "1px", flexShrink: 0, accentColor: "#1E3A5F", cursor: "pointer" }} />
                 <span style={{ color: "#1E3A5F", fontSize: "14px", lineHeight: 1.5 }}>
-                  <strong>Stuur me een gepersonaliseerde quick-scan</strong> voor mijn bedrijf binnen 48 uur (3 concrete automatiseringskansen)
+                  <strong>Stuur me een gepersonaliseerde quick-scan</strong> voor mijn bedrijf
                 </span>
               </label>
               {answers.wil_quickscan && (
@@ -695,19 +692,19 @@ export default function OnderzoekFunnel() {
         {isPadA ? (
           <>
             <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.7, marginBottom: "12px" }}>
-              Het volledige benchmarkrapport stuur ik je zodra we 50 respondenten hebben.
+              Het volledige benchmarkrapport stuur ik je zodra het klaar is.
             </p>
             {answers.wil_quickscan && (
               <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.7, marginBottom: "12px" }}>
-                Je hebt de quick-scan aangevinkt, die ontvang je binnen 48 uur per e-mail.
-                {answers.telefoon && " Als je je nummer hebt achtergelaten neem ik kort contact op via WhatsApp om hem samen door te lopen. Duurt 15 minuten."}
+                Je hebt de quick-scan aangevinkt. Ik neem contact met je op zodra ik hem klaar heb.
+                {answers.telefoon && " Als je dat liever hebt, loop ik hem ook kort met je door via WhatsApp."}
               </p>
             )}
           </>
         ) : (
           <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.7, marginBottom: "12px" }}>
             Je input helpt mij een eerlijk beeld neerzetten van hoe Nederland echt met AI omgaat.
-            {answers.wil_rapport && " Heb je het vinkje gezet? Dan stuur ik je het rapport zodra het klaar is (~30 dagen)."}
+            {answers.wil_rapport && " Heb je het vinkje gezet? Dan stuur ik je het rapport zodra het klaar is."}
           </p>
         )}
         <p style={{ color: "#5F5E5A", fontSize: "14px", fontStyle: "italic", marginTop: "24px" }}>Bjorn Mosselman, MosselAI</p>

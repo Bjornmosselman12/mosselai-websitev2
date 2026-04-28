@@ -35,7 +35,7 @@ export default function OnderzoekPage() {
               Wat krijg je terug?
             </h2>
             <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.6, marginTop: "8px" }}>
-              Deelnemen kost je vier minuten. Dit krijg je ervoor terug.
+              Dit krijg je ervoor terug.
             </p>
             <div className="onderzoek-cards">
               <div className="card-lift" style={{ backgroundColor: "#F8F7F3", border: "1px solid #E8E4DB", borderRadius: "16px", padding: "28px" }}>
@@ -44,7 +44,7 @@ export default function OnderzoekPage() {
                 </div>
                 <h3 style={{ color: "#1E3A5F", fontSize: "16px", fontWeight: 500, marginBottom: "8px" }}>Gratis eindrapport</h3>
                 <p style={{ color: "#5F5E5A", fontSize: "14px", lineHeight: 1.6 }}>
-                  Zodra het onderzoek is afgerond ontvang je het volledige rapport met bevindingen, cijfers en praktijkvoorbeelden uit het Nederlandse MKB. Verwacht binnen ~30 dagen na sluiting.
+                  Zodra het onderzoek is afgerond ontvang je het volledige rapport met bevindingen, cijfers en praktijkvoorbeelden uit het Nederlandse MKB.
                 </p>
               </div>
               <div className="card-lift" style={{ backgroundColor: "#ffffff", border: "2px solid #4A7FC4", borderRadius: "16px", padding: "28px", boxShadow: "0 20px 40px rgba(30,58,95,0.10)" }}>
@@ -56,7 +56,7 @@ export default function OnderzoekPage() {
                 </div>
                 <h3 style={{ color: "#1E3A5F", fontSize: "16px", fontWeight: 500, marginBottom: "8px" }}>Persoonlijke quick-scan</h3>
                 <p style={{ color: "#5F5E5A", fontSize: "14px", lineHeight: 1.6 }}>
-                  Geef aan dat je ondernemer bent en ontvang een gratis analyse van de 3 concrete AI-kansen in jouw bedrijf, op maat, zonder verplichtingen, binnen 48 uur.
+                  Geef aan dat je ondernemer bent en ontvang een gratis analyse van de AI-kansen in jouw bedrijf, op maat en zonder verplichtingen.
                 </p>
               </div>
             </div>
