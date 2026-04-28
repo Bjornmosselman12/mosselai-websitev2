@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 
 const navLinks = [
-  { label: "Hoe het werkt", href: "#hoe-het-werkt" },
-  { label: "Waarom ons", href: "#waarom" },
-  { label: "Over ons", href: "#over" },
-  { label: "Contact", href: "#contact" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Hoe het werkt", href: "/#hoe-het-werkt" },
+  { label: "Waarom ons", href: "/#waarom" },
+  { label: "Over ons", href: "/#over" },
+  { label: "Contact", href: "/#contact" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 // {{ PLACEHOLDER: vervang door jouw telefoonnummer }}
@@ -46,7 +46,7 @@ export default function Header() {
 
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center" style={{ flexShrink: 0 }} aria-label="MosselAI">
+        <a href="/" className="flex items-center" style={{ flexShrink: 0 }} aria-label="MosselAI">
           <img
             src="/logo.png"
             alt="MosselAI"
@@ -159,7 +159,7 @@ export default function Header() {
               Doe mee aan het onderzoek →
             </a>
             <a
-              href="#contact"
+              href="/#contact"
               style={{
                 backgroundColor: "#1E3A5F",
                 color: "#F5F1E8",
