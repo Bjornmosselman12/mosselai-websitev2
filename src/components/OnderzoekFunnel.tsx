@@ -195,19 +195,19 @@ export default function OnderzoekFunnel() {
         Onderzoek · MosselAI 2026
       </div>
       <h1 style={{ color: "#1E3A5F", fontSize: "clamp(26px, 3.5vw, 38px)", fontWeight: 500, letterSpacing: "-0.025em", lineHeight: 1.15, marginBottom: "20px" }}>
-        AI-adoptie in het Nederlandse MKB — Onderzoek 2026
+        AI-adoptie in het Nederlandse MKB: Onderzoek 2026
       </h1>
       <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.8, marginBottom: "12px" }}>
         Iedereen heeft een mening over AI in het MKB. Niemand heeft data.
       </p>
       <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.8, marginBottom: "12px" }}>
-        Ik onderzoek hoe Nederlandse MKB-bedrijven AI in 2026 echt gebruiken — niet de hype, maar de praktijk. Welke processen lopen al automatisch, waar zit nog handmatig werk, en wat houdt mensen tegen?
+        Ik onderzoek hoe Nederlandse MKB-bedrijven AI in 2026 echt gebruiken. Niet de hype, maar de praktijk. Welke processen lopen al automatisch, waar zit nog handmatig werk, en wat houdt mensen tegen?
       </p>
       <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.8, marginBottom: "24px" }}>
-        Vier minuten. In ruil stuur ik je het rapport zodra ik 50 respondenten heb. Vul je het in als ondernemer of beslisser? Dan maak ik bovendien — als je dat wilt — een gepersonaliseerde quick-scan voor jouw bedrijf binnen 48 uur.
+        Vier minuten. In ruil stuur ik je het rapport zodra ik 50 respondenten heb. Vul je het in als ondernemer of beslisser? Dan maak ik bovendien, als je dat wilt, een gepersonaliseerde quick-scan voor jouw bedrijf binnen 48 uur.
       </p>
       <p style={{ color: "#5F5E5A", fontSize: "14px", fontStyle: "italic", marginBottom: "32px", lineHeight: 1.6 }}>
-        — Bjorn Mosselman, MosselAI · Hoeksche Waard
+        Bjorn Mosselman, MosselAI · Hoeksche Waard
       </p>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", marginBottom: "32px" }}>
         {["Anoniem", "4 minuten", "Gratis rapport"].map((t) => (
@@ -290,7 +290,7 @@ export default function OnderzoekFunnel() {
         Vraag {stepIdx} van {totalVisible - 2}
       </p>
       <h2 style={qStyle}>Wat is de jaarlijkse omzet van jullie bedrijf?</h2>
-      <p style={{ color: "#5F5E5A", fontSize: "14px", marginBottom: "16px" }}>Optioneel — helpt ons te segmenteren.</p>
+      <p style={{ color: "#5F5E5A", fontSize: "14px", marginBottom: "16px" }}>Optioneel, helpt ons te segmenteren.</p>
       <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
         {omzetRanges.map((o) => (
           <SingleCard key={o.value} label={o.label} selected={answers.omzet === o.value}
@@ -520,7 +520,7 @@ export default function OnderzoekFunnel() {
           Vraag {stepIdx} van {totalVisible - 2}
         </p>
         <h2 style={qStyle}>Welke taak zou jij het liefst geautomatiseerd zien?</h2>
-        <p style={{ color: "#5F5E5A", fontSize: "14px", marginBottom: "16px" }}>Optioneel — je mag dit overslaan.</p>
+        <p style={{ color: "#5F5E5A", fontSize: "14px", marginBottom: "16px" }}>Optioneel, je mag dit overslaan.</p>
         <textarea
           className="of-input"
           rows={4}
@@ -583,7 +583,7 @@ export default function OnderzoekFunnel() {
       <div className="of-step" style={{ maxWidth: "480px", margin: "0 auto" }}>
         <BackBtn onClick={back} />
         <ProgressBar current={stepIdx} total={totalVisible} />
-        <h2 style={qStyle}>{isPadA ? "Bijna klaar — waar sturen we de quick-scan naartoe?" : "Wil je het rapport ontvangen?"}</h2>
+        <h2 style={qStyle}>{isPadA ? "Bijna klaar: waar sturen we de quick-scan naartoe?" : "Wil je het rapport ontvangen?"}</h2>
 
         {submitError && (
           <div style={{ backgroundColor: "#FEF2F2", border: "1px solid #FECACA", borderRadius: "8px", padding: "12px 16px", marginBottom: "20px", color: "#DC2626", fontSize: "14px" }}>
@@ -644,7 +644,7 @@ export default function OnderzoekFunnel() {
                 <input type="checkbox" checked={answers.wil_quickscan} onChange={(e) => set("wil_quickscan", e.target.checked)}
                   style={{ width: "18px", height: "18px", marginTop: "1px", flexShrink: 0, accentColor: "#1E3A5F", cursor: "pointer" }} />
                 <span style={{ color: "#1E3A5F", fontSize: "14px", lineHeight: 1.5 }}>
-                  <strong>Stuur me een gepersonaliseerde quick-scan</strong> voor mijn bedrijf binnen 48 uur — 3 concrete automatiseringskansen
+                  <strong>Stuur me een gepersonaliseerde quick-scan</strong> voor mijn bedrijf binnen 48 uur (3 concrete automatiseringskansen)
                 </span>
               </label>
               {answers.wil_quickscan && (
@@ -699,8 +699,8 @@ export default function OnderzoekFunnel() {
             </p>
             {answers.wil_quickscan && (
               <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.7, marginBottom: "12px" }}>
-                Je hebt de quick-scan aangevinkt — die ontvang je binnen 48 uur per e-mail.
-                {answers.telefoon && " Als je je nummer hebt achtergelaten neem ik kort contact op via WhatsApp om hem samen door te lopen — duurt 15 minuten."}
+                Je hebt de quick-scan aangevinkt, die ontvang je binnen 48 uur per e-mail.
+                {answers.telefoon && " Als je je nummer hebt achtergelaten neem ik kort contact op via WhatsApp om hem samen door te lopen. Duurt 15 minuten."}
               </p>
             )}
           </>
@@ -710,7 +710,7 @@ export default function OnderzoekFunnel() {
             {answers.wil_rapport && " Heb je het vinkje gezet? Dan stuur ik je het rapport zodra het klaar is (~30 dagen)."}
           </p>
         )}
-        <p style={{ color: "#5F5E5A", fontSize: "14px", fontStyle: "italic", marginTop: "24px" }}>— Bjorn Mosselman, MosselAI</p>
+        <p style={{ color: "#5F5E5A", fontSize: "14px", fontStyle: "italic", marginTop: "24px" }}>Bjorn Mosselman, MosselAI</p>
       </div>
     );
   };
