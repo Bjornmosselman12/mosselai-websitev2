@@ -645,14 +645,16 @@ export default function OnderzoekFunnel() {
             </>
           )}
 
-          {/* Newsletter */}
-          <label style={{ display: "flex", alignItems: "flex-start", gap: "12px", cursor: "pointer" }}>
-            <input type="checkbox" checked={answers.newsletter_consent} onChange={(e) => set("newsletter_consent", e.target.checked)}
-              style={{ width: "16px", height: "16px", marginTop: "2px", flexShrink: 0, accentColor: "#1E3A5F", cursor: "pointer" }} />
-            <span style={{ color: "#5F5E5A", fontSize: "13px", lineHeight: 1.5 }}>
-              Ja, je mag me 1× per kwartaal mailen met praktische AI-cases voor MKB
-            </span>
-          </label>
+          {/* Newsletter — alleen tonen als er een e-mailadres komt */}
+          {(answers.wil_rapport || answers.wil_quickscan) && (
+            <label style={{ display: "flex", alignItems: "flex-start", gap: "12px", cursor: "pointer" }}>
+              <input type="checkbox" checked={answers.newsletter_consent} onChange={(e) => set("newsletter_consent", e.target.checked)}
+                style={{ width: "16px", height: "16px", marginTop: "2px", flexShrink: 0, accentColor: "#1E3A5F", cursor: "pointer" }} />
+              <span style={{ color: "#5F5E5A", fontSize: "13px", lineHeight: 1.5 }}>
+                Ja, je mag me 1× per kwartaal mailen met praktische AI-cases voor MKB
+              </span>
+            </label>
+          )}
 
           <button type="submit" disabled={submitting} className="of-cta-btn of-submit-btn"
             style={{ backgroundColor: "#1E3A5F", color: "#F5F1E8", borderRadius: "10px", fontSize: "15px", fontWeight: 500, padding: "14px 24px", border: "none", cursor: submitting ? "wait" : "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", fontFamily: "inherit", opacity: submitting ? 0.7 : 1 }}>
