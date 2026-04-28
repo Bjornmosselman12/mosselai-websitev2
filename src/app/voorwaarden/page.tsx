@@ -30,7 +30,7 @@ const sections = [
   },
   {
     title: "6. Opzegging",
-    body: `De overeenkomst is maandelijks opzegbaar, zonder opzegtermijn. Opzeggen kan per e-mail. Na opzegging worden geen verdere facturen verzonden. Reeds gefactureerde bedragen blijven verschuldigd.`,
+    body: `De overeenkomst is opzegbaar met een opzegtermijn van 30 dagen, per e-mail. Na het verstrijken van de opzegtermijn worden geen verdere facturen verzonden. Reeds gefactureerde bedragen blijven verschuldigd.`,
   },
   {
     title: "7. Aansprakelijkheid",

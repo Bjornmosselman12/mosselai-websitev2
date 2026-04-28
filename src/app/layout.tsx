@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -27,7 +28,6 @@ export const metadata: Metadata = {
       "Concrete AI-automatiseringen voor lokale ondernemers. Zonder gedoe, zonder jargon.",
     type: "website",
     locale: "nl_NL",
-    // {{ PLACEHOLDER: voeg url, images toe zodra domein bekend is }}
   },
 };
 
@@ -38,10 +38,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl" className={`${inter.variable} h-full antialiased`}>
-      <head>
-        {/* {{ PLACEHOLDER: vervang door Plausible of Google Analytics script }} */}
-      </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <head />
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Script
+          src="https://plausible.io/js/pa-ZJoP4y_ksLsiPq3ytXxaU.js"
+          strategy="afterInteractive"
+        />
+        <Script id="plausible-init" strategy="afterInteractive">{`
+          window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)};
+          window.plausible.init=window.plausible.init||function(i){window.plausible.o=i||{}};
+          window.plausible.init();
+        `}</Script>
+      </body>
     </html>
   );
 }

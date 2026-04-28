@@ -86,6 +86,10 @@ export default function Footer() {
             <a href="/voorwaarden" style={{ color: "#5F5E5A", textDecoration: "underline" }}>
               Algemene voorwaarden
             </a>
+            {" "}·{" "}
+            <a href="/privacy" style={{ color: "#5F5E5A", textDecoration: "underline" }}>
+              Privacyverklaring
+            </a>
           </p>
         </div>
       </div>
