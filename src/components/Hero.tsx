@@ -170,6 +170,28 @@ export default function Hero() {
                 <ChevronDown size={18} />
               </a>
             </div>
+
+            {/* Onderzoek link */}
+            <div className="animate-fade-in-up animate-delay-400" style={{ marginTop: "12px" }}>
+              <a
+                href="/onderzoek"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  backgroundColor: "#E6EDF7",
+                  color: "#1E3A5F",
+                  borderRadius: "999px",
+                  padding: "7px 16px",
+                  fontSize: "13px",
+                  fontWeight: 500,
+                  textDecoration: "none",
+                }}
+                className="hover:opacity-80 transition-opacity duration-150"
+              >
+                Doe mee aan het onderzoek →
+              </a>
+            </div>
           </div>
 
           {/* ── Rechter kolom: vergelijkingsfoto ── */}
