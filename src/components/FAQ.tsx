@@ -7,12 +7,12 @@ const faqs = [
   {
     question: "Wat kost het?",
     answer:
-      "Geen opstartkosten en geen vaste projectprijs vooraf. Je betaalt maandelijks een bedrag dat past bij de tijd die de automatisering voor jou bespaart. Gemiddeld zit dat tussen de €150 en €750 per maand, afhankelijk van de complexiteit en de hoeveelheid werk die automatisch gaat lopen. Dat bedrag spreken we samen af voordat ik begin, zodat er nooit verrassingen zijn.",
+      "Geen opstartkosten en geen vaste projectprijs vooraf. We bespreken wat de automatisering doet en hoe complex het is. Op basis daarvan noem ik een maandelijks bedrag dat we samen vastleggen voordat ik begin. Zo weet je precies waar je aan toe bent, zonder verrassingen achteraf.",
   },
   {
     question: "Hoe werkt de betaling precies?",
     answer:
-      "Maandelijks. Elke maand opnieuw kijk ik of de automatisering nog doet wat hij moet doen. Werkt hij, dan loopt het door. Werkt hij niet meer, of wil je om een andere reden stoppen? Dan stop je, zonder opzegtermijn of boete. Zo houd ik zelf ook de verantwoordelijkheid om het te laten blijven werken.",
+      "Maandelijks, zonder contract of opzegtermijn. Je betaalt zolang de automatisering waarde levert. Wil je stoppen, dan zeg je het op en klaar. Geen boete, geen gedoe. Die vrijheid houdt mij scherp: mijn prikkel is dat het blijft werken.",
   },
   {
     question: "Hoe lang duurt een project?",

@@ -15,19 +15,19 @@ const steps = [
     number: "3",
     title: "Eén pilot, vier weken",
     description:
-      "Geen grote trajecten. Ik pak één taak: de taak waar je het meeste tijd aan verliest, en bouw daar een werkende oplossing voor. Die draait zelfstandig in je bestaande tools (Gmail, Outlook, Excel, Exact). Onderhoud en updates zitten in het maandbedrag.",
+      "Geen grote trajecten. Ik pak één taak: de taak waar je het meeste tijd aan verliest, en bouw daar een werkende oplossing voor. Die draait zelfstandig in je bestaande tools (Gmail, Outlook, Excel, Exact). Onderhoud en updates zijn inbegrepen.",
   },
   {
     number: "4",
     title: "Jij test, ik pas aan",
     description:
-      "Je draait ermee in de praktijk. Werkt iets niet zoals je wil? Dan pas ik aan, net zo lang tot het precies doet wat je nodig hebt.",
+      "Je draait ermee in de praktijk. Werkt iets niet zoals afgesproken? Dan pas ik aan tot het doet wat we samen hebben vastgelegd.",
   },
   {
     number: "5",
     title: "Je betaalt alleen als het werkt",
     description:
-      "Pas als de automatisering aantoonbaar tijd bespaart, stuur ik een factuur. Elke maand opnieuw: werkt het nog? Dan gaat het door. Werkt het niet meer? Dan stop je, zonder gedoe.",
+      "Pas als de automatisering live staat en naar tevredenheid werkt, stuur ik een factuur. Elke maand opnieuw: werkt het nog? Dan gaat het door. Werkt het niet meer? Dan stop je, zonder gedoe.",
   },
 ];
 
@@ -41,11 +41,9 @@ export default function HowItWorks() {
           position: sticky;
           margin-bottom: 0;
         }
-
         .hiw-card + .hiw-card {
           margin-top: 70vh;
         }
-
         .hiw-card-inner {
           background-color: #ffffff;
           border: 1px solid #E8E4DB;
@@ -57,7 +55,6 @@ export default function HowItWorks() {
           gap: 40px;
           align-items: center;
         }
-
         .hiw-number {
           color: #E0DDD6;
           font-size: 100px;
@@ -65,7 +62,6 @@ export default function HowItWorks() {
           line-height: 1;
           user-select: none;
         }
-
         .hiw-title {
           color: #1E3A5F;
           font-size: 24px;
@@ -73,14 +69,12 @@ export default function HowItWorks() {
           margin-bottom: 14px;
           line-height: 1.3;
         }
-
         .hiw-desc {
           color: #5F5E5A;
           font-size: 16px;
           line-height: 1.75;
           margin: 0;
         }
-
         @media (max-width: 768px) {
           .hiw-card-inner {
             padding: 32px 28px;
@@ -88,39 +82,21 @@ export default function HowItWorks() {
             grid-template-columns: 64px 1fr;
             gap: 20px;
           }
-          .hiw-number {
-            font-size: 56px;
-          }
-          .hiw-title {
-            font-size: 19px;
-            margin-bottom: 10px;
-          }
-          .hiw-desc {
-            font-size: 14.5px;
-            line-height: 1.7;
-          }
-          .hiw-card + .hiw-card {
-            margin-top: 55vh;
-          }
+          .hiw-number { font-size: 56px; }
+          .hiw-title  { font-size: 19px; margin-bottom: 10px; }
+          .hiw-desc   { font-size: 14.5px; line-height: 1.7; }
+          .hiw-card + .hiw-card { margin-top: 55vh; }
         }
-
         @media (max-width: 480px) {
           .hiw-card-inner {
             padding: 28px 22px;
             grid-template-columns: 48px 1fr;
             gap: 14px;
           }
-          .hiw-number {
-            font-size: 44px;
-          }
-          .hiw-title {
-            font-size: 17px;
-          }
-          .hiw-desc {
-            font-size: 14px;
-          }
+          .hiw-number { font-size: 44px; }
+          .hiw-title  { font-size: 17px; }
+          .hiw-desc   { font-size: 14px; }
         }
-
       `}</style>
 
       <section
@@ -132,34 +108,28 @@ export default function HowItWorks() {
         }}
       >
         <div className="max-w-3xl mx-auto px-6">
-          {/* Sectietitel */}
           <div style={{ marginBottom: "80px" }}>
-            <p
-              style={{
-                color: "#4A7FC4",
-                fontSize: "13px",
-                fontWeight: 500,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                marginBottom: "12px",
-              }}
-            >
+            <p style={{
+              color: "#4A7FC4",
+              fontSize: "13px",
+              fontWeight: 500,
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              marginBottom: "12px",
+            }}>
               Hoe het werkt
             </p>
-            <h2
-              style={{
-                color: "#1E3A5F",
-                fontSize: "clamp(28px, 3.5vw, 40px)",
-                fontWeight: 500,
-                letterSpacing: "-0.02em",
-                lineHeight: 1.2,
-              }}
-            >
+            <h2 style={{
+              color: "#1E3A5F",
+              fontSize: "clamp(28px, 3.5vw, 40px)",
+              fontWeight: 500,
+              letterSpacing: "-0.02em",
+              lineHeight: 1.2,
+            }}>
               Van eerste gesprek tot werkende automatisering; in vijf stappen.
             </h2>
           </div>
 
-          {/* Gestapelde kaarten */}
           <div>
             {steps.map((step, i) => (
               <div

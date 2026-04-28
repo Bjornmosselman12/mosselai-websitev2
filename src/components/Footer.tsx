@@ -82,7 +82,10 @@ export default function Footer() {
             © {new Date().getFullYear()} MosselAI. Alle rechten voorbehouden.
           </p>
           <p style={{ color: "#5F5E5A", fontSize: "12px" }}>
-            KvK: 97587214 · info@mosselai.com · Hoeksche Waard
+            KvK: 97587214 · info@mosselai.com · Hoeksche Waard ·{" "}
+            <a href="/voorwaarden" style={{ color: "#5F5E5A", textDecoration: "underline" }}>
+              Algemene voorwaarden
+            </a>
           </p>
         </div>
       </div>
