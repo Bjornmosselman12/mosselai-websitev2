@@ -580,10 +580,22 @@ export default function OnderzoekFunnel() {
       <div className="of-step" style={{ maxWidth: "480px", margin: "0 auto" }}>
         <BackBtn onClick={back} />
         <ProgressBar current={stepIdx} total={totalVisible} />
-        <h2 style={qStyle}>{isPadA ? "Bijna klaar: waar sturen we de quick-scan naartoe?" : "Wil je het rapport ontvangen?"}</h2>
+        <h2 style={qStyle}>{isPadA ? "Bijna klaar — vul je gegevens in" : "Wil je het rapport ontvangen?"}</h2>
+
+        {/* Pad A: laat zien wat je sowieso krijgt vs. wat optioneel is */}
+        {isPadA && (
+          <div style={{ backgroundColor: "#F8F7F3", border: "1px solid #E8E4DB", borderRadius: "10px", padding: "14px 16px", marginBottom: "4px" }}>
+            <p style={{ color: "#5F5E5A", fontSize: "12px", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: "10px" }}>Je ontvangt sowieso</p>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <Check size={15} color="#4A7FC4" strokeWidth={2.5} style={{ flexShrink: 0 }} />
+              <span style={{ color: "#1E3A5F", fontSize: "14px", fontWeight: 500 }}>Het eindrapport</span>
+              <span style={{ color: "#5F5E5A", fontSize: "13px" }}>— zodra het onderzoek klaar is</span>
+            </div>
+          </div>
+        )}
 
         {submitError && (
-          <div style={{ backgroundColor: "#FEF2F2", border: "1px solid #FECACA", borderRadius: "8px", padding: "12px 16px", marginBottom: "20px", color: "#DC2626", fontSize: "14px" }}>
+          <div style={{ backgroundColor: "#FEF2F2", border: "1px solid #FECACA", borderRadius: "8px", padding: "12px 16px", marginBottom: "4px", color: "#DC2626", fontSize: "14px" }}>
             {submitError}
           </div>
         )}
@@ -599,6 +611,11 @@ export default function OnderzoekFunnel() {
                 <strong>Stuur me het benchmarkrapport</strong> zodra het klaar is
               </span>
             </label>
+          )}
+
+          {/* Quick-scan sectielabel (Pad A) */}
+          {isPadA && (
+            <p style={{ color: "#5F5E5A", fontSize: "12px", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase", margin: "4px 0 -4px" }}>Optioneel extra</p>
           )}
 
           {/* Voornaam */}
