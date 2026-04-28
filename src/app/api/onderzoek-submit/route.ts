@@ -26,7 +26,7 @@ export async function POST(req: Request) {
     const body = await req.json();
     const {
       pad, rol, sector, fte, omzet,
-      systemen, systeem_anders, tijdvreters, tijdvreters_anders,
+      systemen, systeem_anders, tijdvreters, tijdvreters_anders, situaties,
       ai_gebruik, blokkade, blokkade_anders, verloren_uren,
       ai_frequentie, automatisering_wens,
       voornaam, email, bedrijfsnaam,
@@ -53,6 +53,7 @@ export async function POST(req: Request) {
         systeem_anders: systeem_anders ?? "",
         tijdvreters: tijdvreters ?? [],
         tijdvreters_anders: tijdvreters_anders ?? "",
+        situaties: situaties ?? [],
         ai_gebruik, blokkade, blokkade_anders: blokkade_anders ?? "",
         verloren_uren, ai_frequentie,
         automatisering_wens: automatisering_wens ?? "",
@@ -115,6 +116,7 @@ export async function POST(req: Request) {
       ${pad === "A" ? row("Omzet", omzet) : ""}
       ${pad === "A" ? row("Systemen", (systemen ?? []).join(", ") + (systeem_anders ? ` (${systeem_anders})` : "")) : ""}
       ${pad === "A" ? row("Tijdvreters", (tijdvreters ?? []).join(", ") + (tijdvreters_anders ? ` (${tijdvreters_anders})` : "")) : ""}
+      ${pad === "A" ? row("Herkende situaties", (situaties ?? []).join(", ")) : ""}
       ${pad === "A" ? row("AI-gebruik", ai_gebruik) : ""}
       ${pad === "A" ? row("Blokkade", blokkade + (blokkade_anders ? `: ${blokkade_anders}` : "")) : ""}
       ${pad === "A" ? row("Verloren uren/wk", verloren_uren) : ""}

@@ -96,6 +96,20 @@ export const verlorenUren: Optie[] = [
   { value: "geen-idee", label: "Geen idee" },
 ];
 
+export const situaties: Optie[] = [
+  { value: "orders-overtypen", label: "Iemand bij ons zit dagelijks orders over te typen uit e-mail in onze systemen" },
+  { value: "facturen-pdf", label: "Inkoopfacturen komen binnen als PDF en worden met de hand in de boekhouding gezet" },
+  { value: "klantenservice-herhaling", label: "Onze klantenservice beantwoordt steeds dezelfde vragen (\"waar is mijn order?\", \"wat zijn de openingstijden?\", \"kan ik ruilen?\")" },
+  { value: "cijfers-samentrekken", label: "Voor een wekelijks overzicht haalt iemand cijfers uit 3 of meer systemen samen" },
+  { value: "voorraad-te-laat", label: "Voorraadtekorten ontdekken we vaak pas als een klant erover belt" },
+  { value: "dubbele-invoer", label: "Nieuwe klantgegevens worden in meerdere systemen apart ingevoerd" },
+  { value: "offertes-opvolgen", label: "We bellen achter offertes aan omdat opvolgen erbij inschiet" },
+  { value: "inbox-onbeantwoord", label: "Onze inbox loopt 's avonds vol met vragen die tot de volgende werkdag onbeantwoord blijven" },
+  { value: "voorraad-verschil", label: "Verschillen tussen voorraad in webshop en magazijn worden handmatig rechtgezet" },
+  { value: "rapportage-achteraf", label: "We weten pas achteraf hoe een productlijn of klantgroep heeft gedraaid" },
+  { value: "geen", label: "Geen van bovenstaande — onze processen lopen zonder noemenswaardig handwerk" },
+];
+
 export const aiFrequentie: Optie[] = [
   { value: "dagelijks", label: "Dagelijks" },
   { value: "wekelijks", label: "Wekelijks" },

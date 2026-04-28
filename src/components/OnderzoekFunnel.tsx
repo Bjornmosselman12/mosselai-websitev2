@@ -7,13 +7,14 @@ import {
   systemen as systemenOpties, tijdvreters as tijdvretersOpties,
   aiGebruik as aiGebruikOpties, blokkades as blokkadeOpties,
   verlorenUren as verlorenUrenOpties, aiFrequentie as aiFrequentieOpties,
+  situaties as situatiesOpties,
 } from "@/data/onderzoekVragen";
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 
 type StepName =
   | "welcome" | "rol" | "sector" | "fte" | "omzet"
-  | "systemen" | "tijdvreters" | "ai_gebruik" | "blokkade"
+  | "systemen" | "tijdvreters" | "situaties" | "ai_gebruik" | "blokkade"
   | "verloren_uren" | "ai_frequentie" | "automatisering_wens"
   | "contact" | "done";
 
@@ -27,6 +28,7 @@ interface Answers {
   systeem_anders: string;
   tijdvreters: string[];
   tijdvreters_anders: string;
+  situaties: string[];
   ai_gebruik: string;
   blokkade: string;
   blokkade_anders: string;
@@ -45,7 +47,7 @@ interface Answers {
 
 const EMPTY: Answers = {
   rol: "", pad: "", sector: "", fte: "", omzet: "",
-  systemen: [], systeem_anders: "", tijdvreters: [], tijdvreters_anders: "",
+  systemen: [], systeem_anders: "", tijdvreters: [], tijdvreters_anders: "", situaties: [],
   ai_gebruik: "", blokkade: "", blokkade_anders: "", verloren_uren: "",
   ai_frequentie: "", automatisering_wens: "",
   voornaam: "", email: "", bedrijfsnaam: "",
@@ -54,7 +56,7 @@ const EMPTY: Answers = {
 
 function getSequence(pad: "A" | "B" | "", rol: string): StepName[] {
   if (pad === "A") {
-    return ["welcome","rol","sector","fte","omzet","systemen","tijdvreters","ai_gebruik","blokkade","verloren_uren","contact","done"];
+    return ["welcome","rol","sector","fte","omzet","systemen","tijdvreters","situaties","ai_gebruik","blokkade","verloren_uren","contact","done"];
   }
   if (pad === "B") {
     const base: StepName[] = ["welcome","rol","sector"];
@@ -377,6 +379,46 @@ export default function OnderzoekFunnel() {
     );
   };
 
+  // ── Situaties (multi, geen max) ───────────────────────────────────────────────
+  const renderSituaties = () => {
+    const count = answers.situaties.length;
+    const heeftGeen = answers.situaties.includes("geen");
+    const toggleSituatie = (value: string) => {
+      setAnswers((a) => {
+        if (value === "geen") {
+          return { ...a, situaties: a.situaties.includes("geen") ? [] : ["geen"] };
+        }
+        const zonder = a.situaties.filter((x) => x !== "geen");
+        if (zonder.includes(value)) return { ...a, situaties: zonder.filter((x) => x !== value) };
+        return { ...a, situaties: [...zonder, value] };
+      });
+    };
+    return (
+      <div className="of-step">
+        <BackBtn onClick={back} />
+        <ProgressBar current={stepIdx} total={totalVisible} />
+        <p style={{ color: "#4A7FC4", fontSize: "13px", fontWeight: 500, letterSpacing: "0.04em", marginBottom: "8px" }}>
+          Vraag {stepIdx} van {totalVisible - 2}
+        </p>
+        <h2 style={qStyle}>Welke van deze situaties herken je uit je eigen bedrijf? <span style={{ color: "#5F5E5A", fontSize: "15px", fontWeight: 400 }}>(kies alles wat van toepassing is)</span></h2>
+        <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginBottom: "20px" }}>
+          {situatiesOpties.map((o) => (
+            <MultiCard key={o.value} label={o.label}
+              selected={answers.situaties.includes(o.value)}
+              disabled={heeftGeen && o.value !== "geen"}
+              onClick={() => toggleSituatie(o.value)}
+            />
+          ))}
+        </div>
+        <button onClick={next} disabled={count === 0}
+          className="of-cta-btn"
+          style={{ backgroundColor: count ? "#1E3A5F" : "#C5C5C5", color: "#F5F1E8", borderRadius: "10px", fontSize: "15px", fontWeight: 500, padding: "12px 28px", border: "none", cursor: count ? "pointer" : "not-allowed", display: "inline-flex", alignItems: "center", gap: "8px", fontFamily: "inherit" }}>
+          Volgende <ArrowRight size={16} />
+        </button>
+      </div>
+    );
+  };
+
   // ── AI gebruik ────────────────────────────────────────────────────────────────
   const renderAiGebruik = () => (
     <div className="of-step">
@@ -683,6 +725,7 @@ export default function OnderzoekFunnel() {
       case "omzet":               return renderOmzet();
       case "systemen":            return renderSystemen();
       case "tijdvreters":         return renderTijdvreters();
+      case "situaties":           return renderSituaties();
       case "ai_gebruik":          return renderAiGebruik();
       case "blokkade":            return renderBlokkade();
       case "verloren_uren":       return renderVerlorenUren();
