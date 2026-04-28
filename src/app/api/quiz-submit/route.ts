@@ -1,5 +1,7 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
+import { createHash } from "crypto";
+import { getSupabaseAdmin } from "@/lib/supabase";
 
 const sectorLabel: Record<string, string> = {
   groothandel:    "Groothandel / distributie",
@@ -37,9 +39,20 @@ const annualHours: Record<string, number> = {
 
 export async function POST(req: Request) {
   try {
-    const resend = new Resend(process.env.RESEND_API_KEY);
     const body = await req.json();
     const { sector, pijnpunt, methode, uren, naam, email, bedrijf } = body;
+
+    const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+    const ip_hash = createHash("sha256").update(ip + (process.env.IP_SALT ?? "")).digest("hex");
+
+    // Opslaan in Supabase (stille fout — blokkeer submit niet)
+    try {
+      await getSupabaseAdmin()
+        .from("quiz_responses")
+        .insert({ sector, pijnpunt, methode, uren, naam, email, bedrijf, ip_hash });
+    } catch {
+      console.error("quiz supabase insert failed");
+    }
 
     const jaarUren = uren ? annualHours[uren] ?? 0 : 0;
 
@@ -159,9 +172,10 @@ export async function POST(req: Request) {
 </body>
 </html>`;
 
+    const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
       from:    "MosselAI Quiz <onboarding@resend.dev>",
-      to:      ["blmosselman@gmail.com"], // tijdelijk voor test — zet terug naar info@mosselai.com na domeinverificatie
+      to:      ["blmosselman@gmail.com"],
       replyTo: email,
       subject: `Nieuwe lead: ${naam || "onbekend"} — ${pijnLabel[pijnpunt] ?? pijnpunt ?? "quiz"}`,
       html,

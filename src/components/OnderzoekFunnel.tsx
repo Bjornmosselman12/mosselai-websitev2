@@ -35,6 +35,8 @@ interface Answers {
   verloren_uren: string;
   ai_frequentie: string;
   automatisering_wens: string;
+  rol_anders: string;
+  sector_anders: string;
   // contact
   voornaam: string;
   email: string;
@@ -50,6 +52,7 @@ const EMPTY: Answers = {
   systemen: [], systeem_anders: "", tijdvreters: [], tijdvreters_anders: "", situaties: [],
   ai_gebruik: "", blokkade: "", blokkade_anders: "", verloren_uren: "",
   ai_frequentie: "", automatisering_wens: "",
+  rol_anders: "", sector_anders: "",
   voornaam: "", email: "", bedrijfsnaam: "",
   wil_quickscan: true, telefoon: "", newsletter_consent: false, wil_rapport: true,
 };
@@ -232,11 +235,22 @@ export default function OnderzoekFunnel() {
             onClick={() => {
               const pad: "A" | "B" = padARollen.includes(o.value) ? "A" : "B";
               setAnswers((a) => ({ ...a, rol: o.value, pad }));
-              next();
+              if (o.value !== "anders") next();
             }}
           />
         ))}
       </div>
+      {answers.rol === "anders" && (
+        <div style={{ marginTop: "12px" }}>
+          <label style={labelStyle} htmlFor="rol-anders">Wat is jouw rol?</label>
+          <input id="rol-anders" type="text" placeholder="Omschrijf kort…" className="of-input"
+            value={answers.rol_anders} onChange={(e) => set("rol_anders", e.target.value)}
+            style={inputStyle} autoFocus />
+          <button onClick={next} className="of-cta-btn" style={{ marginTop: "12px", backgroundColor: "#1E3A5F", color: "#F5F1E8", borderRadius: "10px", fontSize: "15px", fontWeight: 500, padding: "12px 28px", border: "none", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "8px", fontFamily: "inherit" }}>
+            Volgende <ArrowRight size={16} />
+          </button>
+        </div>
+      )}
     </div>
   );
 
@@ -252,10 +266,21 @@ export default function OnderzoekFunnel() {
       <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
         {sectoren.map((o) => (
           <SingleCard key={o.value} label={o.label} selected={answers.sector === o.value}
-            onClick={() => { set("sector", o.value); next(); }}
+            onClick={() => { set("sector", o.value); if (o.value !== "anders") next(); }}
           />
         ))}
       </div>
+      {answers.sector === "anders" && (
+        <div style={{ marginTop: "12px" }}>
+          <label style={labelStyle} htmlFor="sector-anders">Welke sector?</label>
+          <input id="sector-anders" type="text" placeholder="Omschrijf kort…" className="of-input"
+            value={answers.sector_anders} onChange={(e) => set("sector_anders", e.target.value)}
+            style={inputStyle} autoFocus />
+          <button onClick={next} className="of-cta-btn" style={{ marginTop: "12px", backgroundColor: "#1E3A5F", color: "#F5F1E8", borderRadius: "10px", fontSize: "15px", fontWeight: 500, padding: "12px 28px", border: "none", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "8px", fontFamily: "inherit" }}>
+            Volgende <ArrowRight size={16} />
+          </button>
+        </div>
+      )}
     </div>
   );
 

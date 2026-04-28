@@ -83,6 +83,16 @@ export default function AdminTable({ rows, total, padA, padB, quickscan }: Props
         </div>
       </div>
 
+      {/* Nav tabs */}
+      <div style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #E8E4DB", padding: "0 24px", display: "flex", gap: "0" }}>
+        <a href="/admin/onderzoek" style={{ display: "inline-block", padding: "12px 20px", fontSize: "13px", fontWeight: 500, color: "#1E3A5F", textDecoration: "none", borderBottom: "2px solid #4A7FC4" }}>
+          Onderzoek 2026
+        </a>
+        <a href="/admin/quiz" style={{ display: "inline-block", padding: "12px 20px", fontSize: "13px", fontWeight: 500, color: "#5F5E5A", textDecoration: "none", borderBottom: "2px solid transparent" }}>
+          Quiz leads
+        </a>
+      </div>
+
       {/* Stats */}
       <div style={{ backgroundColor: "#ffffff", borderBottom: "1px solid #E8E4DB", padding: "14px 24px", display: "flex", flexWrap: "wrap", gap: "24px" }}>
         {[["Totaal", total], ["Pad A (ondernemer)", padA], ["Pad B (overig)", padB], ["Quick-scan gevraagd", quickscan]].map(([label, val]) => (

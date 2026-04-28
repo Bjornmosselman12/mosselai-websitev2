@@ -38,7 +38,7 @@ export const omzetRanges: Optie[] = [
   { value: "2m-5m", label: "€2M – €5M" },
   { value: "5m-20m", label: "€5M – €20M" },
   { value: "20m+", label: "Boven €20M" },
-  { value: "geen-antwoord", label: "Liever niet zeggen" },
+  { value: "geen-antwoord", label: "Dat laat ik achterwege" },
 ];
 
 export const systemen: Optie[] = [
