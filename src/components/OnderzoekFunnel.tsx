@@ -541,12 +541,10 @@ export default function OnderzoekFunnel() {
 
     const validate = (): string => {
       const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (isPadA || answers.wil_rapport) {
+      const wantsContact = answers.wil_rapport || answers.wil_quickscan;
+      if (wantsContact) {
         if (!answers.voornaam || answers.voornaam.trim().length < 2) return "Vul je voornaam in (minimaal 2 tekens).";
         if (!emailRe.test(answers.email)) return "Vul een geldig e-mailadres in.";
-      }
-      if (isPadA && answers.wil_quickscan && answers.bedrijfsnaam.trim().length === 0) {
-        return "Vul je bedrijfsnaam in voor de quick-scan.";
       }
       if (answers.telefoon && answers.telefoon.replace(/\D/g, "").length < 9) {
         return "Vul een geldig telefoonnummer in (minimaal 9 cijfers).";
@@ -580,19 +578,8 @@ export default function OnderzoekFunnel() {
       <div className="of-step" style={{ maxWidth: "480px", margin: "0 auto" }}>
         <BackBtn onClick={back} />
         <ProgressBar current={stepIdx} total={totalVisible} />
-        <h2 style={qStyle}>{isPadA ? "Bijna klaar — vul je gegevens in" : "Wil je het rapport ontvangen?"}</h2>
-
-        {/* Pad A: laat zien wat je sowieso krijgt vs. wat optioneel is */}
-        {isPadA && (
-          <div style={{ backgroundColor: "#F8F7F3", border: "1px solid #E8E4DB", borderRadius: "10px", padding: "14px 16px", marginBottom: "4px" }}>
-            <p style={{ color: "#5F5E5A", fontSize: "12px", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: "10px" }}>Je ontvangt sowieso</p>
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <Check size={15} color="#4A7FC4" strokeWidth={2.5} style={{ flexShrink: 0 }} />
-              <span style={{ color: "#1E3A5F", fontSize: "14px", fontWeight: 500 }}>Het eindrapport</span>
-              <span style={{ color: "#5F5E5A", fontSize: "13px" }}>— zodra het onderzoek klaar is</span>
-            </div>
-          </div>
-        )}
+        <h2 style={qStyle}>Wat wil je ontvangen?</h2>
+        <p style={{ color: "#5F5E5A", fontSize: "14px", marginBottom: "4px" }}>Kies wat je wilt — beide is ook prima.</p>
 
         {submitError && (
           <div style={{ backgroundColor: "#FEF2F2", border: "1px solid #FECACA", borderRadius: "8px", padding: "12px 16px", marginBottom: "4px", color: "#DC2626", fontSize: "14px" }}>
@@ -602,75 +589,57 @@ export default function OnderzoekFunnel() {
 
         <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
 
-          {/* Rapport toggle (Pad B) */}
-          {!isPadA && (
-            <label style={{ display: "flex", alignItems: "flex-start", gap: "12px", cursor: "pointer", backgroundColor: answers.wil_rapport ? "#E6EDF7" : "#F8F7F3", border: `1px solid ${answers.wil_rapport ? "#4A7FC4" : "#E8E4DB"}`, borderRadius: "10px", padding: "14px 16px" }}>
-              <input type="checkbox" checked={answers.wil_rapport} onChange={(e) => set("wil_rapport", e.target.checked)}
+          {/* Rapport toggle — beide paden */}
+          <label style={{ display: "flex", alignItems: "flex-start", gap: "12px", cursor: "pointer", backgroundColor: answers.wil_rapport ? "#E6EDF7" : "#F8F7F3", border: `1px solid ${answers.wil_rapport ? "#4A7FC4" : "#E8E4DB"}`, borderRadius: "10px", padding: "14px 16px" }}>
+            <input type="checkbox" checked={answers.wil_rapport} onChange={(e) => set("wil_rapport", e.target.checked)}
+              style={{ width: "18px", height: "18px", marginTop: "1px", flexShrink: 0, accentColor: "#1E3A5F", cursor: "pointer" }} />
+            <span style={{ color: "#1E3A5F", fontSize: "14px", lineHeight: 1.5 }}>
+              <strong>Het eindrapport</strong> — stuur me het benchmarkrapport zodra het klaar is
+            </span>
+          </label>
+
+          {/* Quick-scan toggle — alleen Pad A */}
+          {isPadA && (
+            <label style={{ display: "flex", alignItems: "flex-start", gap: "12px", cursor: "pointer", backgroundColor: answers.wil_quickscan ? "#E6EDF7" : "#F8F7F3", border: `1px solid ${answers.wil_quickscan ? "#4A7FC4" : "#E8E4DB"}`, borderRadius: "10px", padding: "14px 16px" }}>
+              <input type="checkbox" checked={answers.wil_quickscan} onChange={(e) => set("wil_quickscan", e.target.checked)}
                 style={{ width: "18px", height: "18px", marginTop: "1px", flexShrink: 0, accentColor: "#1E3A5F", cursor: "pointer" }} />
               <span style={{ color: "#1E3A5F", fontSize: "14px", lineHeight: 1.5 }}>
-                <strong>Stuur me het benchmarkrapport</strong> zodra het klaar is
+                <strong>Een gratis quick-scan</strong> — een persoonlijke analyse van de AI-kansen in mijn bedrijf
               </span>
             </label>
           )}
 
-          {/* Quick-scan sectielabel (Pad A) */}
-          {isPadA && (
-            <p style={{ color: "#5F5E5A", fontSize: "12px", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase", margin: "4px 0 -4px" }}>Optioneel extra</p>
-          )}
-
-          {/* Voornaam */}
-          <div>
-            <label htmlFor="of-voornaam" style={labelStyle}>
-              Voornaam {(!isPadA && !answers.wil_rapport) && <span style={{ color: "#5F5E5A", fontWeight: 400, fontSize: "12px" }}>(optioneel)</span>}
-            </label>
-            <input id="of-voornaam" type="text" placeholder="Jan" className="of-input"
-              value={answers.voornaam} onChange={(e) => set("voornaam", e.target.value)}
-              style={inputStyle} />
-          </div>
-
-          {/* E-mail */}
-          <div>
-            <label htmlFor="of-email" style={labelStyle}>
-              E-mailadres {(!isPadA && !answers.wil_rapport) && <span style={{ color: "#5F5E5A", fontWeight: 400, fontSize: "12px" }}>(optioneel)</span>}
-            </label>
-            <input id="of-email" type="email" placeholder="jan@bedrijf.nl" className="of-input"
-              value={answers.email} onChange={(e) => set("email", e.target.value)}
-              style={inputStyle} />
-          </div>
-
-          {/* Bedrijfsnaam */}
-          <div>
-            <label htmlFor="of-bedrijf" style={labelStyle}>
-              Bedrijfsnaam{" "}
-              <span style={{ color: "#5F5E5A", fontWeight: 400, fontSize: "12px" }}>
-                {isPadA && answers.wil_quickscan ? "(verplicht voor quick-scan)" : "(optioneel)"}
-              </span>
-            </label>
-            <input id="of-bedrijf" type="text" placeholder="Jouw Bedrijf BV" className="of-input"
-              value={answers.bedrijfsnaam} onChange={(e) => set("bedrijfsnaam", e.target.value)}
-              style={inputStyle} />
-          </div>
-
-          {/* Quick-scan toggle (Pad A) */}
-          {isPadA && (
+          {/* Contactvelden — toon als minstens één toggle aan staat */}
+          {(answers.wil_rapport || answers.wil_quickscan) && (
             <>
-              <label style={{ display: "flex", alignItems: "flex-start", gap: "12px", cursor: "pointer", backgroundColor: answers.wil_quickscan ? "#E6EDF7" : "#F8F7F3", border: `1px solid ${answers.wil_quickscan ? "#4A7FC4" : "#E8E4DB"}`, borderRadius: "10px", padding: "14px 16px" }}>
-                <input type="checkbox" checked={answers.wil_quickscan} onChange={(e) => set("wil_quickscan", e.target.checked)}
-                  style={{ width: "18px", height: "18px", marginTop: "1px", flexShrink: 0, accentColor: "#1E3A5F", cursor: "pointer" }} />
-                <span style={{ color: "#1E3A5F", fontSize: "14px", lineHeight: 1.5 }}>
-                  <strong>Stuur me een gepersonaliseerde quick-scan</strong> voor mijn bedrijf
-                </span>
-              </label>
-              {answers.wil_quickscan && (
+              <div>
+                <label htmlFor="of-voornaam" style={labelStyle}>Voornaam</label>
+                <input id="of-voornaam" type="text" placeholder="Jan" className="of-input"
+                  value={answers.voornaam} onChange={(e) => set("voornaam", e.target.value)}
+                  style={inputStyle} />
+              </div>
+              <div>
+                <label htmlFor="of-email" style={labelStyle}>E-mailadres</label>
+                <input id="of-email" type="email" placeholder="jan@bedrijf.nl" className="of-input"
+                  value={answers.email} onChange={(e) => set("email", e.target.value)}
+                  style={inputStyle} />
+              </div>
+              <div>
+                <label htmlFor="of-bedrijf" style={labelStyle}>
+                  Bedrijfsnaam <span style={{ color: "#5F5E5A", fontWeight: 400, fontSize: "12px" }}>(optioneel)</span>
+                </label>
+                <input id="of-bedrijf" type="text" placeholder="Jouw Bedrijf BV" className="of-input"
+                  value={answers.bedrijfsnaam} onChange={(e) => set("bedrijfsnaam", e.target.value)}
+                  style={inputStyle} />
+              </div>
+              {isPadA && answers.wil_quickscan && (
                 <div>
                   <label htmlFor="of-tel" style={labelStyle}>
-                    Telefoonnummer (WhatsApp){" "}
-                    <span style={{ color: "#5F5E5A", fontWeight: 400, fontSize: "12px" }}>(optioneel)</span>
+                    Telefoonnummer (WhatsApp) <span style={{ color: "#5F5E5A", fontWeight: 400, fontSize: "12px" }}>(optioneel)</span>
                   </label>
                   <input id="of-tel" type="tel" placeholder="+31 6 12 34 56 78" className="of-input"
                     value={answers.telefoon} onChange={(e) => set("telefoon", e.target.value)}
                     style={inputStyle} />
-                  <p style={{ color: "#5F5E5A", fontSize: "12px", marginTop: "4px" }}>Voor een snelle terugbel-afspraak. Optioneel.</p>
                 </div>
               )}
             </>
