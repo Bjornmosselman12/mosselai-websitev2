@@ -4,6 +4,7 @@ const navLinks = [
   { label: "FAQ", href: "#faq" },
   { label: "Over ons", href: "#over" },
   { label: "Contact", href: "#contact" },
+  { label: "Onderzoek 2026", href: "/onderzoek" },
 ];
 
 export default function Footer() {

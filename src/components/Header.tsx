@@ -68,6 +68,25 @@ export default function Header() {
           ))}
         </nav>
 
+        {/* Onderzoek link */}
+        <a
+          href="/onderzoek"
+          className="header-cta hover:opacity-90 transition-opacity duration-150"
+          style={{
+            alignItems: "center",
+            gap: "6px",
+            backgroundColor: "#E6EDF7",
+            color: "#1E3A5F",
+            fontSize: "13px",
+            fontWeight: 500,
+            padding: "7px 14px",
+            borderRadius: "999px",
+            marginRight: "4px",
+          }}
+        >
+          Doe mee aan het onderzoek →
+        </a>
+
         {/* Desktop CTA */}
         <a
           href={PHONE_HREF}
@@ -132,6 +151,13 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
+            <a
+              href="/onderzoek"
+              style={{ color: "#2C2C2E", fontSize: "15px" }}
+              onClick={() => setMenuOpen(false)}
+            >
+              Doe mee aan het onderzoek →
+            </a>
             <a
               href="#contact"
               style={{
