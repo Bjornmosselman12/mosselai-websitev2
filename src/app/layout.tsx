@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.png" },
   title: "MosselAI | AI-automatisering voor MKB in de Hoeksche Waard",
   description:
-    "MosselAI bouwt concrete AI-automatiseringen voor MKB-ondernemers in de Hoeksche Waard. Geen buzzwords, geen beloftes, alleen werk dat eerder handmatig ging en nu vanzelf loopt.",
+    "MosselAI bouwt AI-automatiseringen voor MKB-ondernemers in de Hoeksche Waard. Werkend in vier weken, alleen betalen als het werkt.",
   keywords: [
     "AI automatisering",
     "MKB",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MosselAI | AI-automatisering voor MKB in de Hoeksche Waard",
     description:
-      "Concrete AI-automatiseringen voor lokale ondernemers. Zonder gedoe, zonder jargon.",
+      "MosselAI bouwt AI-automatiseringen voor MKB-ondernemers in de Hoeksche Waard. Werkend in vier weken, alleen betalen als het werkt.",
     type: "website",
     locale: "nl_NL",
   },
