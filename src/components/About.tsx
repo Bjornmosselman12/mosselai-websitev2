@@ -77,7 +77,7 @@ export default function About() {
             </p>
 
             {/* Highlights */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "32px" }}>
               {highlights.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -105,6 +105,39 @@ export default function About() {
                   </div>
                 );
               })}
+            </div>
+
+            {/* CTA */}
+            <style>{`
+              .about-cta-primary:hover { opacity: 0.85; }
+              .about-cta-secondary:hover { opacity: 1 !important; }
+            `}</style>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center" }}>
+              <a
+                href="/#contact"
+                className="about-cta-primary"
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: "6px",
+                  backgroundColor: "#1E3A5F", color: "#F5F1E8",
+                  borderRadius: "8px", padding: "12px 22px",
+                  fontSize: "14px", fontWeight: 500, textDecoration: "none",
+                  transition: "opacity 0.2s",
+                }}
+              >
+                Plan een kennismaking
+              </a>
+              <a
+                href="tel:+31612382576"
+                className="about-cta-secondary"
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: "6px",
+                  color: "#1E3A5F", fontSize: "14px", fontWeight: 500,
+                  textDecoration: "none", opacity: 0.6,
+                  transition: "opacity 0.2s",
+                }}
+              >
+                of bel direct: +31 6 12 38 25 76
+              </a>
             </div>
           </div>
 

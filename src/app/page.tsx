@@ -33,9 +33,9 @@ export default function Home() {
         {/* <ScrollObserver>
           <Comparison />
         </ScrollObserver> */}
-        <ScrollObserver>
+        {/* <ScrollObserver>
           <Testimonials />
-        </ScrollObserver>
+        </ScrollObserver> */}
         {/* <ScrollObserver>
           <Cases />
         </ScrollObserver> */}
