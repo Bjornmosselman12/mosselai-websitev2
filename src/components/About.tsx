@@ -1,4 +1,5 @@
 import { MapPin, Code2 } from "lucide-react";
+import ContactPopup from "@/components/ContactPopup";
 
 const highlights = [
   { icon: MapPin, label: "Hoeksche Waard, Zuid-Holland" },
@@ -108,39 +109,7 @@ export default function About() {
             </div>
 
             {/* CTA */}
-            <style>{`
-              .about-cta-primary:hover { opacity: 0.85; }
-              .about-cta-secondary:hover { opacity: 1 !important; }
-            `}</style>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center" }}>
-              <a
-                href="https://wa.me/31612382576"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="about-cta-primary"
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: "6px",
-                  backgroundColor: "#1E3A5F", color: "#F5F1E8",
-                  borderRadius: "8px", padding: "12px 22px",
-                  fontSize: "14px", fontWeight: 500, textDecoration: "none",
-                  transition: "opacity 0.2s",
-                }}
-              >
-                App me op WhatsApp
-              </a>
-              <a
-                href="mailto:info@mosselai.com"
-                className="about-cta-secondary"
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: "6px",
-                  color: "#1E3A5F", fontSize: "14px", fontWeight: 500,
-                  textDecoration: "none", opacity: 0.6,
-                  transition: "opacity 0.2s",
-                }}
-              >
-                of mail me
-              </a>
-            </div>
+            <ContactPopup />
           </div>
 
           {/* Foto oprichter */}
