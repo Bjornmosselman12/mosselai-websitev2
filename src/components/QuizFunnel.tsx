@@ -145,7 +145,7 @@ function ProgressBar({ current }: { current: number }) {
               width: "10px",
               height: "10px",
               borderRadius: "50%",
-              backgroundColor: n <= current ? "#1E3A5F" : "#E8E4DB",
+              backgroundColor: n <= current ? "#F5F1E8" : "rgba(197,215,240,0.35)",
               transition: "background-color 0.3s ease",
               flexShrink: 0,
             }}
@@ -155,7 +155,7 @@ function ProgressBar({ current }: { current: number }) {
               style={{
                 flex: 1,
                 height: "2px",
-                backgroundColor: n < current ? "#1E3A5F" : "#E8E4DB",
+                backgroundColor: n < current ? "#F5F1E8" : "rgba(197,215,240,0.2)",
                 borderRadius: "1px",
                 transition: "background-color 0.3s ease",
               }}
@@ -225,7 +225,7 @@ export default function QuizFunnel() {
     <div key="step-0" className="quiz-step" style={{ textAlign: "center", maxWidth: "560px", margin: "0 auto" }}>
       <p
         style={{
-          color: "#4A7FC4",
+          color: "#C5D7F0",
           fontSize: "13px",
           fontWeight: 500,
           letterSpacing: "0.08em",
@@ -237,7 +237,7 @@ export default function QuizFunnel() {
       </p>
       <h2
         style={{
-          color: "#1E3A5F",
+          color: "#F5F1E8",
           fontSize: "clamp(28px, 3.5vw, 40px)",
           fontWeight: 500,
           letterSpacing: "-0.02em",
@@ -249,7 +249,7 @@ export default function QuizFunnel() {
       </h2>
       <p
         style={{
-          color: "#5F5E5A",
+          color: "#C5D7F0",
           fontSize: "16px",
           lineHeight: 1.7,
           marginBottom: "32px",
@@ -264,8 +264,8 @@ export default function QuizFunnel() {
         onClick={() => setStep(1)}
         className="quiz-cta-btn"
         style={{
-          backgroundColor: "#1E3A5F",
-          color: "#F5F1E8",
+          backgroundColor: "#F5F1E8",
+          color: "#1E3A5F",
           borderRadius: "10px",
           fontSize: "16px",
           fontWeight: 500,
@@ -350,11 +350,6 @@ export default function QuizFunnel() {
             );
           })}
         </div>
-        {answers.sector && (
-          <p style={{ color: "#5F5E5A", fontSize: "13px", marginTop: "20px", fontStyle: "italic", textAlign: "center" }}>
-            8 van de 10 {sectorShort[answers.sector as SectorKey]} bedrijven herkennen dit.
-          </p>
-        )}
       </div>
     );
   };
@@ -454,9 +449,11 @@ export default function QuizFunnel() {
               </div>
               <div>
                 <p style={{ color: "#1E3A5F", fontSize: "16px", fontWeight: 500, margin: "0 0 8px", lineHeight: 1.5 }}>
-                  Dat zijn op jaarbasis zo&apos;n{" "}
-                  <strong style={{ color: "#C89656" }}>{computedHours} uur</strong>{" "}
-                  aan herhaalwerk.
+                  {answers.uren === "gt10" ? (
+                    <>Dat is op jaarbasis <strong style={{ color: "#C89656" }}>meer dan 500 uur</strong> aan herhaalwerk.</>
+                  ) : (
+                    <>Dat zijn op jaarbasis zo&apos;n <strong style={{ color: "#C89656" }}>{computedHours} uur</strong> aan herhaalwerk.</>
+                  )}
                 </p>
                 <p style={{ color: "#5F5E5A", fontSize: "14px", lineHeight: 1.7, margin: 0 }}>
                   Bij klanten zoals jij lopen die taken gemiddeld voor{" "}
@@ -474,8 +471,8 @@ export default function QuizFunnel() {
               className="quiz-cta-btn"
               style={{
                 marginTop: "20px",
-                backgroundColor: "#1E3A5F",
-                color: "#F5F1E8",
+                backgroundColor: "#F5F1E8",
+                color: "#1E3A5F",
                 borderRadius: "10px",
                 fontSize: "15px",
                 fontWeight: 500,
@@ -601,9 +598,11 @@ export default function QuizFunnel() {
           <div style={{ backgroundColor: "#FBF5EA", border: "1px solid #E8DBC0", borderRadius: "10px",
               padding: "14px 18px", marginBottom: "20px" }}>
             <p style={{ color: "#8A6A2E", fontSize: "14px", fontWeight: 500, margin: 0, lineHeight: 1.5 }}>
-              ⚡ Je verliest momenteel{" "}
-              <strong style={{ color: "#C89656" }}>{savedHours} uur per jaar</strong>{" "}
-              aan handmatig herhaalwerk.
+              {answers.uren === "gt10" ? (
+                <>⚡ Je verliest momenteel <strong style={{ color: "#C89656" }}>meer dan 500 uur per jaar</strong> aan handmatig herhaalwerk.</>
+              ) : (
+                <>⚡ Je verliest momenteel <strong style={{ color: "#C89656" }}>{savedHours} uur per jaar</strong> aan handmatig herhaalwerk.</>
+              )}
             </p>
           </div>
 
@@ -666,7 +665,7 @@ export default function QuizFunnel() {
     <section
       id="wat-we-doen"
       ref={sectionRef}
-      style={{ backgroundColor: "#F8F7F3", padding: "96px 0" }}
+      style={{ backgroundColor: "#1E3A5F", padding: "96px 0" }}
     >
       <style>{`
         @keyframes quizSlideIn {
