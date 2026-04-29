@@ -720,24 +720,20 @@ export default function OnderzoekFunnel() {
           <Check size={28} color="#4A7FC4" strokeWidth={2.5} />
         </div>
         <h2 style={{ color: "#1E3A5F", fontSize: "clamp(22px, 3vw, 30px)", fontWeight: 500, letterSpacing: "-0.02em", marginBottom: "16px" }}>
-          {isPadA ? "Top, je antwoorden staan binnen." : "Bedankt voor je deelname."}
+          Bedankt voor je deelname.
         </h2>
-        {isPadA ? (
-          <>
-            <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.7, marginBottom: "12px" }}>
-              Het volledige benchmarkrapport stuur ik je zodra het klaar is.
-            </p>
-            {answers.wil_quickscan && (
-              <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.7, marginBottom: "12px" }}>
-                Je hebt de quick-scan aangevinkt. Ik neem contact met je op zodra ik hem klaar heb.
-                {answers.telefoon && " Als je dat liever hebt, loop ik hem ook kort met je door via WhatsApp."}
-              </p>
-            )}
-          </>
-        ) : (
+        <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.7, marginBottom: "12px" }}>
+          Je input helpt een eerlijk beeld neerzetten van hoe het Nederlandse MKB met AI omgaat.
+        </p>
+        {answers.wil_rapport && !answers.wil_quickscan && (
           <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.7, marginBottom: "12px" }}>
-            Je input helpt mij een eerlijk beeld neerzetten van hoe Nederland echt met AI omgaat.
-            {answers.wil_rapport && " Heb je het vinkje gezet? Dan stuur ik je het rapport zodra het klaar is."}
+            Het volledige benchmarkrapport stuur ik je zodra het klaar is.
+          </p>
+        )}
+        {answers.wil_quickscan && (
+          <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.7, marginBottom: "12px" }}>
+            Het rapport en je persoonlijke quick-scan stuur ik je zo snel mogelijk toe.
+            {answers.telefoon && " Als je dat liever hebt, loop ik de quick-scan ook kort met je door via WhatsApp."}
           </p>
         )}
         <p style={{ color: "#5F5E5A", fontSize: "14px", fontStyle: "italic", marginTop: "24px" }}>Bjorn Mosselman, MosselAI</p>
