@@ -13,7 +13,7 @@ type Block = {
 
 const blocks: Block[] = [
   {
-    kicker: "Net als in 1998",
+    kicker: "Herkenbaar patroon",
     title: "De overstap\ngebeurt nu.",
     desc: "Drie cijfers die laten zien hoe snel.",
   },
@@ -37,7 +37,7 @@ const blocks: Block[] = [
     title: "van groeiende MKB-bedrijven",
     desc: "gebruikt AI en automatisering. Bij krimpende bedrijven is dat maar 55%.",
     source: "Salesforce, SMB Trends Report, 2024",
-    outro: "De ondernemer die in 1998 geen website nam, verloor klanten aan wie dat wel deed. Hetzelfde speelt zich nu af met AI.",
+    outro: "De boer die wachtte tot zijn buurman al met een trekker ploegde, begon te laat. Hetzelfde patroon, een nieuwe technologie.",
   },
 ];
 

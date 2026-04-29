@@ -208,7 +208,7 @@ export default function Hero() {
             >
               <Image
                 src="/64810fea-e2e9-46ab-8d92-f3850fb3e370.jpg"
-                alt="1935: ossen · 1940: trekker — de vergelijking met AI"
+                alt="Van ossen naar trekker — de vergelijking met AI-automatisering"
                 width={720}
                 height={405}
                 style={{ width: "100%", height: "auto", display: "block" }}
@@ -227,7 +227,7 @@ export default function Hero() {
                 letterSpacing: "0.02em",
               }}
             >
-              In vijf jaar tijd veranderde alles. De boeren die niet overstapten verloren hun concurrentiepositie voorgoed.
+              Toen de trekker opkwam, verdwenen de ossen van het land. Niet omdat het moest — maar omdat je zonder trekker niet meer kon concurreren. Datzelfde speelt zich nu af met AI.
             </p>
           </div>
 
