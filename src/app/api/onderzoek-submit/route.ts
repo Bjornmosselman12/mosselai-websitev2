@@ -37,7 +37,13 @@ export async function POST(req: Request) {
     if (!pad || !rol) {
       return NextResponse.json({ ok: false, error: "Ontbrekende verplichte velden" }, { status: 400 });
     }
-    if (pad === "A" && (!voornaam || !email)) {
+    const wantsQuickscan = pad === "A" && !!wil_quickscan;
+    const wantsRapport   = !!wil_rapport;
+    const wantsAnything  = wantsRapport || wantsQuickscan;
+    if (wantsAnything && !email) {
+      return NextResponse.json({ ok: false, error: "Ontbrekende verplichte velden" }, { status: 400 });
+    }
+    if (wantsQuickscan && (!voornaam || !bedrijfsnaam)) {
       return NextResponse.json({ ok: false, error: "Ontbrekende verplichte velden" }, { status: 400 });
     }
 
