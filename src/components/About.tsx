@@ -114,7 +114,9 @@ export default function About() {
             `}</style>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", alignItems: "center" }}>
               <a
-                href="/#contact"
+                href="https://wa.me/31612382576"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="about-cta-primary"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: "6px",
@@ -124,10 +126,10 @@ export default function About() {
                   transition: "opacity 0.2s",
                 }}
               >
-                Plan een kennismaking
+                App me op WhatsApp
               </a>
               <a
-                href="tel:+31612382576"
+                href="mailto:info@mosselai.com"
                 className="about-cta-secondary"
                 style={{
                   display: "inline-flex", alignItems: "center", gap: "6px",
@@ -136,7 +138,7 @@ export default function About() {
                   transition: "opacity 0.2s",
                 }}
               >
-                of bel direct: +31 6 12 38 25 76
+                of mail me
               </a>
             </div>
           </div>
