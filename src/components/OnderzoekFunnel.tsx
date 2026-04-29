@@ -652,7 +652,7 @@ export default function OnderzoekFunnel() {
           {wantsRapport && !wantsQuickscan && (
             <div>
               <label htmlFor="of-email" style={labelStyle}>E-mailadres</label>
-              <input id="of-email" type="email" placeholder="jan@bedrijf.nl" className="of-input"
+              <input id="of-email" type="email" placeholder="jouw@emailadres.nl" className="of-input"
                 value={answers.email} onChange={(e) => set("email", e.target.value)}
                 style={inputStyle} />
             </div>
@@ -669,7 +669,7 @@ export default function OnderzoekFunnel() {
               </div>
               <div>
                 <label htmlFor="of-email" style={labelStyle}>E-mailadres</label>
-                <input id="of-email" type="email" placeholder="jan@bedrijf.nl" className="of-input"
+                <input id="of-email" type="email" placeholder="jouw@emailadres.nl" className="of-input"
                   value={answers.email} onChange={(e) => set("email", e.target.value)}
                   style={inputStyle} />
               </div>
