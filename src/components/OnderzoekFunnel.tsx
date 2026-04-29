@@ -696,7 +696,7 @@ export default function OnderzoekFunnel() {
               <input type="checkbox" checked={answers.newsletter_consent} onChange={(e) => set("newsletter_consent", e.target.checked)}
                 style={{ width: "16px", height: "16px", marginTop: "2px", flexShrink: 0, accentColor: "#1E3A5F", cursor: "pointer" }} />
               <span style={{ color: "#5F5E5A", fontSize: "13px", lineHeight: 1.5 }}>
-                Ja, je mag me 1× per kwartaal mailen met praktische AI-cases voor MKB
+                Aanmelden voor de nieuwsbrief
               </span>
             </label>
           )}
