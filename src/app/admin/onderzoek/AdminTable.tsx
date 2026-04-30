@@ -27,15 +27,72 @@ function fmtDate(iso: unknown): string {
   return d.toLocaleString("nl-NL", { day: "2-digit", month: "2-digit", year: "2-digit", hour: "2-digit", minute: "2-digit" });
 }
 
-const DETAIL_FIELDS = [
-  ["fte", "FTE"], ["omzet", "Omzet"], ["systemen", "Systemen"],
-  ["systeem_anders", "Systeem anders"], ["tijdvreters", "Tijdvreters"],
-  ["tijdvreters_anders", "Tijdvreters anders"], ["ai_gebruik", "AI-gebruik"],
-  ["blokkade", "Blokkade"], ["blokkade_anders", "Blokkade anders"],
-  ["verloren_uren", "Verloren uren"], ["ai_frequentie", "AI-frequentie"],
-  ["automatisering_wens", "Automatisering wens"], ["telefoon", "Telefoon"],
-  ["newsletter_consent", "Newsletter"], ["user_agent", "User agent"],
-];
+function Field({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <p style={{ margin: 0, color: "#9CA3AF", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em" }}>{label}</p>
+      <p style={{ margin: "3px 0 0", color: value === "–" ? "#C5D7F0" : "#1E3A5F", fontSize: "13px", lineHeight: 1.5, wordBreak: "break-word", fontStyle: value === "–" ? "italic" : "normal" }}>{value}</p>
+    </div>
+  );
+}
+
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div style={{ backgroundColor: "#ffffff", border: "1px solid #D1DFEF", borderRadius: "10px", padding: "14px 16px" }}>
+      <p style={{ margin: "0 0 12px", color: "#4A7FC4", fontSize: "10px", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>{title}</p>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))", gap: "12px 20px" }}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function DetailPanel({ r }: { r: Row }) {
+  const isPadA = r.pad === "A";
+  const systemen = [fmt(r.systemen), r.systeem_anders ? `+ ${r.systeem_anders}` : ""].filter(Boolean).join(" ");
+  const tijdvreters = [fmt(r.tijdvreters), r.tijdvreters_anders ? `+ ${r.tijdvreters_anders}` : ""].filter(Boolean).join(" ");
+  const blokkade = [fmt(r.blokkade), r.blokkade_anders ? `(${r.blokkade_anders})` : ""].filter(v => v && v !== "–").join(" ");
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "10px" }}>
+      {isPadA && (
+        <Section title="Bedrijfsprofiel">
+          <Field label="Teamgrootte" value={fmt(r.fte)} />
+          <Field label="Jaaromzet" value={fmt(r.omzet)} />
+        </Section>
+      )}
+      {isPadA && (
+        <Section title="Systemen & processen">
+          <Field label="Software / systemen" value={systemen || "–"} />
+          <Field label="Tijdvreters" value={tijdvreters || "–"} />
+          <Field label="Verloren uren per week" value={fmt(r.verloren_uren)} />
+        </Section>
+      )}
+      {isPadA && (
+        <Section title="AI & blokkades">
+          <Field label="Huidig AI-gebruik" value={fmt(r.ai_gebruik)} />
+          <Field label="Grootste blokkade" value={blokkade || "–"} />
+        </Section>
+      )}
+      {!isPadA && (
+        <Section title="AI-gebruik">
+          <Field label="AI-frequentie" value={fmt(r.ai_frequentie)} />
+        </Section>
+      )}
+      {isPadA && fmt(r.automatisering_wens) !== "–" && (
+        <Section title="Automatiseringswens (open vraag)">
+          <div style={{ gridColumn: "1 / -1" }}>
+            <p style={{ margin: 0, color: "#1E3A5F", fontSize: "13px", lineHeight: 1.6 }}>{fmt(r.automatisering_wens)}</p>
+          </div>
+        </Section>
+      )}
+      <Section title="Contact & voorkeuren">
+        <Field label="Telefoonnummer" value={fmt(r.telefoon)} />
+        <Field label="Rapport ontvangen" value={r.wil_rapport ? "Ja" : "Nee"} />
+        <Field label="Nieuwsbrief" value={r.newsletter_consent ? "Ja" : "Nee"} />
+      </Section>
+    </div>
+  );
+}
 
 export default function AdminTable({ rows: initialRows, total: initialTotal, padA: initialPadA, padB: initialPadB, quickscan: initialQuickscan }: Props) {
   const [rows, setRows]           = useState<Row[]>(initialRows);
@@ -190,15 +247,8 @@ export default function AdminTable({ rows: initialRows, total: initialTotal, pad
                   </tr>,
                   isOpen && (
                     <tr key={`${id}-detail`} style={{ backgroundColor: "#F0F5FC", borderBottom: "2px solid #C5D7F0" }}>
-                      <td colSpan={9} style={{ padding: "16px 20px" }}>
-                        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "10px 24px" }}>
-                          {DETAIL_FIELDS.filter(([k]) => fmt(r[k]) !== "–").map(([k, label]) => (
-                            <div key={k}>
-                              <span style={{ color: "#5F5E5A", fontSize: "11px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em" }}>{label}</span>
-                              <p style={{ color: "#1E3A5F", fontSize: "13px", margin: "2px 0 0", lineHeight: 1.5, wordBreak: "break-word" }}>{fmt(r[k])}</p>
-                            </div>
-                          ))}
-                        </div>
+                      <td colSpan={10} style={{ padding: "14px 16px" }}>
+                        <DetailPanel r={r} />
                       </td>
                     </tr>
                   ),
