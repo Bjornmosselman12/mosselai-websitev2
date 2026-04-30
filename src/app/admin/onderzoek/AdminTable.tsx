@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { ChevronDown, ChevronUp, Download, LogOut } from "lucide-react";
+import { ChevronDown, ChevronUp, Download, LogOut, Trash2 } from "lucide-react";
 
 type Row = Record<string, unknown>;
 
@@ -37,10 +37,37 @@ const DETAIL_FIELDS = [
   ["newsletter_consent", "Newsletter"], ["user_agent", "User agent"],
 ];
 
-export default function AdminTable({ rows, total, padA, padB, quickscan }: Props) {
-  const [expanded, setExpanded] = useState<string | null>(null);
+export default function AdminTable({ rows: initialRows, total: initialTotal, padA: initialPadA, padB: initialPadB, quickscan: initialQuickscan }: Props) {
+  const [rows, setRows]           = useState<Row[]>(initialRows);
+  const [expanded, setExpanded]   = useState<string | null>(null);
   const [loggingOut, setLoggingOut] = useState(false);
+  const [deleting, setDeleting]   = useState<string | null>(null);
   const router = useRouter();
+
+  const total    = rows.length;
+  const padA     = rows.filter((r) => r.pad === "A").length;
+  const padB     = rows.filter((r) => r.pad === "B").length;
+  const quickscan = rows.filter((r) => r.wil_quickscan).length;
+
+  const handleDelete = async (id: unknown) => {
+    if (!window.confirm("Weet je zeker dat je deze inzending wilt verwijderen?")) return;
+    setDeleting(String(id));
+    try {
+      const res = await fetch("/api/admin-delete", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ table: "onderzoek_responses", id }),
+      });
+      if (res.ok) {
+        setRows((prev) => prev.filter((r) => r.id !== id));
+        setExpanded(null);
+      } else {
+        alert("Verwijderen mislukt.");
+      }
+    } finally {
+      setDeleting(null);
+    }
+  };
 
   const handleLogout = async () => {
     setLoggingOut(true);
@@ -111,7 +138,7 @@ export default function AdminTable({ rows, total, padA, padB, quickscan }: Props
           <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "13px" }}>
             <thead>
               <tr style={{ backgroundColor: "#F8F7F3", borderBottom: "2px solid #E8E4DB" }}>
-                {["Datum", "Pad", "Rol", "Sector", "Naam", "E-mail", "Bedrijf", "Quick-scan", ""].map((h) => (
+                {["Datum", "Pad", "Rol", "Sector", "Naam", "E-mail", "Bedrijf", "Quick-scan", "", ""].map((h) => (
                   <th key={h} style={{ padding: "10px 12px", textAlign: "left", color: "#5F5E5A", fontWeight: 600, fontSize: "11px", letterSpacing: "0.04em", textTransform: "uppercase", whiteSpace: "nowrap" }}>{h}</th>
                 ))}
               </tr>
@@ -146,6 +173,18 @@ export default function AdminTable({ rows, total, padA, padB, quickscan }: Props
                       <button onClick={() => setExpanded(isOpen ? null : id)}
                         style={{ background: "none", border: "none", cursor: "pointer", color: "#4A7FC4", display: "flex", alignItems: "center", gap: "4px", fontSize: "12px", fontFamily: "inherit", padding: 0 }}>
                         {isOpen ? <><ChevronUp size={14} /> Sluiten</> : <><ChevronDown size={14} /> Details</>}
+                      </button>
+                    </td>
+                    <td style={{ padding: "10px 12px" }}>
+                      <button
+                        onClick={() => handleDelete(r.id)}
+                        disabled={deleting === id}
+                        title="Verwijderen"
+                        style={{ background: "none", border: "none", cursor: "pointer", color: "#DC2626", opacity: deleting === id ? 0.4 : 0.5, padding: "4px", borderRadius: "4px", display: "flex", alignItems: "center" }}
+                        onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+                        onMouseLeave={(e) => (e.currentTarget.style.opacity = deleting === id ? "0.4" : "0.5")}
+                      >
+                        <Trash2 size={14} />
                       </button>
                     </td>
                   </tr>,

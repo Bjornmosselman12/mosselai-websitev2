@@ -15,7 +15,8 @@ export default async function AdminQuizPage() {
   const { data: responses, error } = await getSupabaseAdmin()
     .from("quiz_responses")
     .select("*")
-    .order("created_at", { ascending: false });
+    .order("created_at", { ascending: false })
+    .limit(10000);
 
   if (error) {
     return (

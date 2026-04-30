@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Download, LogOut, BarChart2, List } from "lucide-react";
+import { Download, LogOut, BarChart2, List, Trash2 } from "lucide-react";
 
 type Row = Record<string, unknown>;
 
@@ -104,10 +104,36 @@ function DistBlock({ title, counts, labels, total, color }: { title: string; cou
   );
 }
 
-export default function QuizTable({ rows, total, sectorCounts, pijnCounts, urenCounts, topSector, topPijn, topUren }: Props) {
-  const [view, setView] = useState<"overzicht" | "leads">("overzicht");
+export default function QuizTable({ rows: initialRows, total: initialTotal, sectorCounts: initialSectorCounts, pijnCounts: initialPijnCounts, urenCounts: initialUrenCounts, topSector, topPijn, topUren }: Props) {
+  const [rows, setRows]           = useState<Row[]>(initialRows);
+  const [view, setView]           = useState<"overzicht" | "leads">("overzicht");
   const [loggingOut, setLoggingOut] = useState(false);
+  const [deleting, setDeleting]   = useState<string | null>(null);
   const router = useRouter();
+
+  const total        = rows.length;
+  const sectorCounts = rows.reduce<Record<string,number>>((a, r) => { const v=String(r.sector??"onbekend"); a[v]=(a[v]??0)+1; return a; }, {});
+  const pijnCounts   = rows.reduce<Record<string,number>>((a, r) => { const v=String(r.pijnpunt??"onbekend"); a[v]=(a[v]??0)+1; return a; }, {});
+  const urenCounts   = rows.reduce<Record<string,number>>((a, r) => { const v=String(r.uren??"onbekend"); a[v]=(a[v]??0)+1; return a; }, {});
+
+  const handleDelete = async (id: unknown) => {
+    if (!window.confirm("Weet je zeker dat je deze inzending wilt verwijderen?")) return;
+    setDeleting(String(id));
+    try {
+      const res = await fetch("/api/admin-delete", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ table: "quiz_responses", id }),
+      });
+      if (res.ok) {
+        setRows((prev) => prev.filter((r) => r.id !== id));
+      } else {
+        alert("Verwijderen mislukt.");
+      }
+    } finally {
+      setDeleting(null);
+    }
+  };
 
   const handleLogout = async () => {
     setLoggingOut(true);
@@ -248,7 +274,7 @@ export default function QuizTable({ rows, total, sectorCounts, pijnCounts, urenC
           <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "13px" }}>
             <thead>
               <tr style={{ backgroundColor: "#F8F7F3", borderBottom: "2px solid #E8E4DB" }}>
-                {["Datum", "Naam", "E-mail", "Bedrijf", "Sector", "Pijnpunt", "Tijdsverlies"].map((h) => (
+                {["Datum", "Naam", "E-mail", "Bedrijf", "Sector", "Pijnpunt", "Tijdsverlies", ""].map((h) => (
                   <th key={h} style={{ padding: "10px 12px", textAlign: "left", color: "#5F5E5A", fontWeight: 600, fontSize: "11px", letterSpacing: "0.04em", textTransform: "uppercase", whiteSpace: "nowrap" }}>{h}</th>
                 ))}
               </tr>
@@ -268,6 +294,18 @@ export default function QuizTable({ rows, total, sectorCounts, pijnCounts, urenC
                   <td style={{ padding: "10px 12px", color: "#2C2C2E" }}>{sectorLabel[String(r.sector)] ?? fmt(r.sector)}</td>
                   <td style={{ padding: "10px 12px", color: "#2C2C2E" }}>{pijnLabel[String(r.pijnpunt)] ?? fmt(r.pijnpunt)}</td>
                   <td style={{ padding: "10px 12px", color: "#2C2C2E" }}>{urenLabel[String(r.uren)] ?? fmt(r.uren)}</td>
+                  <td style={{ padding: "10px 12px" }}>
+                    <button
+                      onClick={() => handleDelete(r.id)}
+                      disabled={deleting === String(r.id)}
+                      title="Verwijderen"
+                      style={{ background: "none", border: "none", cursor: "pointer", color: "#DC2626", opacity: deleting === String(r.id) ? 0.4 : 0.5, padding: "4px", borderRadius: "4px", display: "flex", alignItems: "center" }}
+                      onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+                      onMouseLeave={(e) => (e.currentTarget.style.opacity = deleting === String(r.id) ? "0.4" : "0.5")}
+                    >
+                      <Trash2 size={14} />
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>

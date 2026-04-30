@@ -7,7 +7,8 @@ export default async function AdminOnderzoekPage() {
   const { data: responses, error } = await getSupabaseAdmin()
     .from("onderzoek_responses")
     .select("*")
-    .order("created_at", { ascending: false });
+    .order("created_at", { ascending: false })
+    .limit(10000);
 
   if (error) {
     return (
