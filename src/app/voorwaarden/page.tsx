@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Algemene voorwaarden | MosselAI",
-  description: "Algemene voorwaarden van MosselAI — AI-automatisering voor MKB.",
+  description: "Algemene voorwaarden van MosselAI — AI-automatisering voor bedrijven.",
 };
 
 const sections = [
@@ -18,7 +18,7 @@ const sections = [
   },
   {
     title: "3. De dienst",
-    body: `MosselAI bouwt en onderhoudt AI-automatiseringen voor MKB-bedrijven. De precieze scope van elke automatisering wordt voorafgaand aan de opdracht schriftelijk vastgelegd (per e-mail of offerte). Wat in die vastlegging staat, is wat inbegrepen is. Aanvullende wensen die buiten de oorspronkelijke scope vallen, worden apart geoffreerd.`,
+    body: `MosselAI bouwt en onderhoudt AI-automatiseringen voor bedrijven en organisaties. De precieze scope van elke automatisering wordt voorafgaand aan de opdracht schriftelijk vastgelegd (per e-mail of offerte). Wat in die vastlegging staat, is wat inbegrepen is. Aanvullende wensen die buiten de oorspronkelijke scope vallen, worden apart geoffreerd.`,
   },
   {
     title: "4. Pilotperiode en beëindiging tijdens de pilot",

@@ -11,21 +11,21 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   icons: { icon: "/favicon.png" },
-  title: "MosselAI | AI-automatisering voor MKB in de Hoeksche Waard",
+  title: "MosselAI | AI-automatisering voor bedrijven in de Hoeksche Waard",
   description:
-    "MosselAI bouwt AI-automatiseringen voor MKB-ondernemers in de Hoeksche Waard. Werkend in vier weken, alleen betalen als het werkt.",
+    "MosselAI bouwt AI-automatiseringen voor ondernemers en bedrijven in de Hoeksche Waard. Werkend in vier weken, alleen betalen als het werkt.",
   keywords: [
     "AI automatisering",
-    "MKB",
+    "automatisering",
     "Hoeksche Waard",
     "factuurverwerking",
     "orderverwerking",
     "workflow automatisering",
   ],
   openGraph: {
-    title: "MosselAI | AI-automatisering voor MKB in de Hoeksche Waard",
+    title: "MosselAI | AI-automatisering voor bedrijven in de Hoeksche Waard",
     description:
-      "MosselAI bouwt AI-automatiseringen voor MKB-ondernemers in de Hoeksche Waard. Werkend in vier weken, alleen betalen als het werkt.",
+      "MosselAI bouwt AI-automatiseringen voor ondernemers en bedrijven in de Hoeksche Waard. Werkend in vier weken, alleen betalen als het werkt.",
     type: "website",
     locale: "nl_NL",
   },

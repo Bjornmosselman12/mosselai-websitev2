@@ -1,7 +1,7 @@
 export type Optie = { value: string; label: string };
 
 export const vraag1Rol: Optie[] = [
-  { value: "ondernemer", label: "Ondernemer / eigenaar van een MKB-bedrijf" },
+  { value: "ondernemer", label: "Ondernemer / eigenaar" },
   { value: "directie", label: "Directielid / manager met beslissingsbevoegdheid" },
   { value: "werknemer", label: "Werknemer (geen beslissingsbevoegdheid over AI/tools)" },
   { value: "freelancer", label: "Freelancer / ZZP'er" },

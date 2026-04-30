@@ -6,7 +6,7 @@ import OnderzoekFunnel from "@/components/OnderzoekFunnel";
 export const metadata: Metadata = {
   title: "AI-adoptie onderzoek 2026 | MosselAI",
   description:
-    "Hoe gebruikt het Nederlandse MKB AI in 2026? Doe mee aan het onderzoek en ontvang het rapport. Voor ondernemers: gepersonaliseerde quick-scan binnen 48 uur.",
+    "Hoe gebruiken Nederlandse bedrijven AI in 2026? Doe mee aan het onderzoek en ontvang het rapport. Voor ondernemers: gepersonaliseerde quick-scan binnen 48 uur.",
 };
 
 export default function OnderzoekPage() {

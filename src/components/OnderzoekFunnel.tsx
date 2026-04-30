@@ -198,10 +198,10 @@ export default function OnderzoekFunnel() {
         Onderzoek · MosselAI 2026
       </div>
       <h1 style={{ color: "#1E3A5F", fontSize: "clamp(26px, 3.5vw, 38px)", fontWeight: 500, letterSpacing: "-0.025em", lineHeight: 1.15, marginBottom: "20px" }}>
-        AI-adoptie in het Nederlandse MKB: Onderzoek 2026
+        AI-adoptie in het Nederlandse bedrijfsleven: Onderzoek 2026
       </h1>
       <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.8, marginBottom: "12px" }}>
-        Ik onderzoek hoe Nederlandse MKB-bedrijven AI in 2026 echt gebruiken. Niet de hype, maar de praktijk. Welke processen lopen al automatisch, waar zit nog handmatig werk, en wat houdt mensen tegen?
+        Ik onderzoek hoe Nederlandse bedrijven AI in 2026 echt gebruiken. Niet de hype, maar de praktijk. Welke processen lopen al automatisch, waar zit nog handmatig werk, en wat houdt mensen tegen?
       </p>
       <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.8, marginBottom: "24px" }}>
         In ruil stuur ik je het rapport zodra het klaar is. Vul je het in als ondernemer of beslisser? Dan maak ik bovendien, als je dat wilt, een gepersonaliseerde quick-scan voor jouw bedrijf.
@@ -723,7 +723,7 @@ export default function OnderzoekFunnel() {
           Bedankt voor je deelname.
         </h2>
         <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.7, marginBottom: "12px" }}>
-          Je input helpt een eerlijk beeld neerzetten van hoe het Nederlandse MKB met AI omgaat.
+          Je input helpt een eerlijk beeld neerzetten van hoe Nederlandse bedrijven met AI omgaan.
         </p>
         {answers.wil_rapport && !answers.wil_quickscan && (
           <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.7, marginBottom: "12px" }}>

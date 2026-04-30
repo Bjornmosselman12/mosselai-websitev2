@@ -42,7 +42,7 @@ export default function Footer() {
               </span>
             </a>
             <p style={{ color: "#5F5E5A", fontSize: "13px", maxWidth: "240px", lineHeight: 1.6 }}>
-              AI-automatisering voor MKB-ondernemers in de Hoeksche Waard.
+              AI-automatisering voor ondernemers en bedrijven in de Hoeksche Waard.
             </p>
           </div>
 
