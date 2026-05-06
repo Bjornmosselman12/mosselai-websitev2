@@ -120,6 +120,35 @@ export default function Services() {
           </div>
 
         </div>
+
+        {/* CTA */}
+        <div style={{ marginTop: "40px", display: "flex", alignItems: "center", gap: "24px", flexWrap: "wrap" }}>
+          <a
+            href="#over"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              backgroundColor: "#F5F1E8",
+              color: "#1E3A5F",
+              borderRadius: "10px",
+              padding: "13px 24px",
+              fontSize: "15px",
+              fontWeight: 500,
+              textDecoration: "none",
+              transition: "opacity 0.15s",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.88")}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+          >
+            Neem contact op
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <p style={{ color: "#C5D7F0", fontSize: "14px", opacity: 0.7 }}>
+            Ik kijk gratis mee wat er bij jou mogelijk is.
+          </p>
+        </div>
+
       </div>
     </section>
   );
