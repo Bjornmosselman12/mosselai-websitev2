@@ -124,7 +124,7 @@ export default function Services() {
         {/* CTA */}
         <div style={{ marginTop: "40px", display: "flex", alignItems: "center", gap: "24px", flexWrap: "wrap" }}>
           <a
-            href="#over"
+            href="#contact"
             style={{
               display: "inline-flex",
               alignItems: "center",

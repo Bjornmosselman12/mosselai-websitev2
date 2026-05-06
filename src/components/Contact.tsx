@@ -17,15 +17,19 @@ export default function Contact() {
     <section
       id="contact"
       style={{
-        backgroundColor: "#F5F1E8",
+        backgroundColor: "#1E3A5F",
         padding: "96px 0",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
+      <div aria-hidden="true" style={{ position: "absolute", top: "-160px", right: "-120px", width: "520px", height: "520px", background: "radial-gradient(circle, rgba(74,127,196,0.35) 0%, rgba(74,127,196,0) 70%)", filter: "blur(20px)", pointerEvents: "none" }} />
+      <div aria-hidden="true" style={{ position: "absolute", bottom: "-180px", left: "-160px", width: "480px", height: "480px", background: "radial-gradient(circle, rgba(200,150,86,0.18) 0%, rgba(200,150,86,0) 70%)", filter: "blur(20px)", pointerEvents: "none" }} />
       <style>{`
         .contact-whatsapp { transition: transform 0.2s ease, box-shadow 0.2s ease; }
         .contact-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(37, 211, 102, 0.30); }
       `}</style>
-      <div className="max-w-3xl mx-auto px-6" style={{ textAlign: "center" }}>
+      <div className="max-w-3xl mx-auto px-6" style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
         <p style={{
           color: "#4A7FC4",
           fontSize: "13px",
@@ -37,7 +41,7 @@ export default function Contact() {
           Contact
         </p>
         <h2 style={{
-          color: "#1E3A5F",
+          color: "#F5F1E8",
           fontSize: "clamp(28px, 3.5vw, 42px)",
           fontWeight: 500,
           letterSpacing: "-0.02em",
@@ -46,7 +50,7 @@ export default function Contact() {
         }}>
           Welk werk kost jouw team{" "}
           <span style={{
-            backgroundImage: "linear-gradient(90deg, #4A7FC4 0%, #1E3A5F 100%)",
+            backgroundImage: "linear-gradient(90deg, #C5D7F0 0%, #4A7FC4 100%)",
             WebkitBackgroundClip: "text",
             backgroundClip: "text",
             color: "transparent",
@@ -55,7 +59,7 @@ export default function Contact() {
           </span>
         </h2>
         <p style={{
-          color: "#5F5E5A",
+          color: "#C5D7F0",
           fontSize: "17px",
           lineHeight: 1.7,
           maxWidth: "560px",
@@ -94,7 +98,7 @@ export default function Contact() {
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              color: "#4A7FC4",
+              color: "#C5D7F0",
               fontSize: "14px",
               textDecoration: "none",
               opacity: 0.8,

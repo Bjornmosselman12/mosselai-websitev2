@@ -31,7 +31,7 @@ export default function Home() {
         <ScrollObserver>
           <About />
         </ScrollObserver>
-        <QuizFunnel />
+        {/* <QuizFunnel /> */}
         {/* <ScrollObserver>
           <Comparison />
         </ScrollObserver> */}
