@@ -122,31 +122,35 @@ export default function Services() {
         </div>
 
         {/* CTA */}
-        <div style={{ marginTop: "40px", display: "flex", alignItems: "center", gap: "24px", flexWrap: "wrap" }}>
-          <a
-            href="#contact"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              backgroundColor: "#F5F1E8",
-              color: "#1E3A5F",
-              borderRadius: "10px",
-              padding: "13px 24px",
-              fontSize: "15px",
-              fontWeight: 500,
-              textDecoration: "none",
-              transition: "opacity 0.15s",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.88")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
-          >
+        <div style={{ marginTop: "40px" }}>
+          <style>{`
+            .svc-cta {
+              display: inline-flex;
+              align-items: center;
+              gap: 8px;
+              color: rgba(197,215,240,0.55);
+              font-size: 15px;
+              font-weight: 500;
+              text-decoration: none;
+              transition: color 0.2s ease, text-shadow 0.2s ease;
+            }
+            .svc-cta:hover {
+              color: #F5F1E8;
+              text-shadow: 0 0 20px rgba(197,215,240,0.6), 0 0 40px rgba(74,127,196,0.35);
+            }
+            .svc-cta:hover .svc-cta-arrow {
+              transform: translateX(4px);
+            }
+            .svc-cta-arrow {
+              transition: transform 0.2s ease;
+            }
+          `}</style>
+          <a href="#contact" className="svc-cta">
             Neem contact op
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg className="svc-cta-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
           </a>
-          <p style={{ color: "#C5D7F0", fontSize: "14px", opacity: 0.7 }}>
-            Ik kijk gratis mee wat er bij jou mogelijk is.
-          </p>
         </div>
 
       </div>
