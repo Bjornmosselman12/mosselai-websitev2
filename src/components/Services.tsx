@@ -93,29 +93,29 @@ export default function Services() {
               <Search size={17} color="#C5D7F0" />
             </div>
             <p style={{ color: "#4A7FC4", fontSize: "11px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "6px" }}>
-              Eerst begrijpen, dan bouwen
+              Jullie eigen IT-team, mijn richting
             </p>
             <h3 style={{ color: "#F5F1E8", fontSize: "clamp(18px, 1.6vw, 22px)", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "10px" }}>
-              Procesanalyse & advies
+              Consultancy
             </h3>
             <p style={{ color: "#C5D7F0", fontSize: "13px", lineHeight: 1.7 }}>
-              Samen in kaart brengen welke processen het meest lonen om te automatiseren. Voor bedrijven die weten dat er winst te halen valt maar niet weten waar te beginnen.
+              Heb je al een intern development- of IT-team maar weet je niet waar te beginnen met AI? Ik analyseer jullie processen, stel de prioriteiten vast en geef het team concrete richting om zelf te bouwen.
             </p>
           </div>
 
-          {/* ── Consultancy (op één na groot) ── */}
+          {/* ── Digitalisering (op één na groot) ── */}
           <div className="svc-card svc-consult">
             <div className="svc-icon" style={{ width: 44, height: 44, marginBottom: 20 }}>
               <Layers size={20} color="#C5D7F0" />
             </div>
             <p style={{ color: "#4A7FC4", fontSize: "11px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "8px" }}>
-              Van papier naar systeem
+              Volledig ontzorgd
             </p>
             <h3 style={{ color: "#F5F1E8", fontSize: "clamp(20px, 2vw, 28px)", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "12px" }}>
-              Digitalisering & consultancy
+              Digitalisering & implementatie
             </h3>
             <p style={{ color: "#C5D7F0", fontSize: "15px", lineHeight: 1.75 }}>
-              Voor organisaties die verder willen dan één losse automatisering. Complete digitale transformatie van A tot Z, van analyse tot livegang.
+              Geen intern IT-team? Geen probleem. Ik neem het volledige traject op me: van analyse en ontwerp tot bouw, livegang en doorlopend onderhoud. Jij hoeft alleen te zeggen wat je wilt bereiken.
             </p>
           </div>
 

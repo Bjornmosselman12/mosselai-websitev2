@@ -26,21 +26,11 @@ export default function Home() {
           <TechStack />
         </div>
         <Momentum />
-        <HowItWorks />
         <Services />
+        <HowItWorks />
         <ScrollObserver>
           <About />
         </ScrollObserver>
-        {/* <QuizFunnel /> */}
-        {/* <ScrollObserver>
-          <Comparison />
-        </ScrollObserver> */}
-        {/* <ScrollObserver>
-          <Testimonials />
-        </ScrollObserver> */}
-        {/* <ScrollObserver>
-          <Cases />
-        </ScrollObserver> */}
         <ScrollObserver>
           <Contact />
         </ScrollObserver>
