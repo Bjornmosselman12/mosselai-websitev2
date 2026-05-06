@@ -64,7 +64,7 @@ export default function ContactPopup() {
 
       {open && (
         <div style={{
-          position: "absolute", top: "calc(100% + 8px)", left: 0,
+          position: "absolute", bottom: "calc(100% + 8px)", left: 0,
           backgroundColor: "#ffffff", border: "1px solid #E8E4DB",
           borderRadius: "12px", boxShadow: "0 16px 40px rgba(30,58,95,0.14)",
           minWidth: "220px", overflow: "hidden", zIndex: 50,
@@ -72,7 +72,7 @@ export default function ContactPopup() {
         }}>
           <style>{`
             @keyframes cpFadeIn {
-              from { opacity: 0; transform: translateY(-6px); }
+              from { opacity: 0; transform: translateY(6px); }
               to   { opacity: 1; transform: translateY(0); }
             }
             .cp-option:hover { background-color: #F0F5FC; }
