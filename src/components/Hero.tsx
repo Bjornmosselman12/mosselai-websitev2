@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ChevronDown, Check } from "lucide-react";
+import ContactPopup from "@/components/ContactPopup";
 
 export default function Hero() {
   return (
@@ -101,26 +102,7 @@ export default function Hero() {
 
             {/* CTA */}
             <div className="animate-fade-in-up animate-delay-300" style={{ marginBottom: "16px" }}>
-              <a
-                href="#contact"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  backgroundColor: "#1E3A5F",
-                  color: "#F5F1E8",
-                  borderRadius: "9px",
-                  fontSize: "15px",
-                  fontWeight: 500,
-                  padding: "13px 24px",
-                  textDecoration: "none",
-                  transition: "opacity 0.15s",
-                }}
-                className="hover:opacity-90 transition-opacity duration-150"
-              >
-                Neem contact op
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
+              <ContactPopup />
             </div>
 
             {/* Proof-points + chevron */}
