@@ -83,7 +83,7 @@ export default function Services() {
               AI-automatisering
             </h3>
             <p style={{ color: "#C5D7F0", fontSize: "16px", lineHeight: 1.75 }}>
-              Ik analyseer waar jullie tijd in zit en bouw de koppeling of logica die dat overneemt. Factuurverwerking, orderbevestigingen, rapportages. Werkend binnen vier weken.
+              Ik breng in kaart welke taken elke week terugkomen en bouw de software die dat automatisch afhandelt. Factuurverwerking, orderbevestigingen, rapportages. Werkend binnen vier weken.
             </p>
           </div>
 
