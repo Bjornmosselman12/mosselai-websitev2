@@ -17,44 +17,15 @@ export default function Contact() {
     <section
       id="contact"
       style={{
-        backgroundColor: "#1E3A5F",
+        backgroundColor: "#F5F1E8",
         padding: "96px 0",
-        position: "relative",
-        overflow: "hidden",
       }}
     >
-      {/* Sfeer: blauwe glow in de hoek */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          top: "-160px",
-          right: "-120px",
-          width: "520px",
-          height: "520px",
-          background: "radial-gradient(circle, rgba(74,127,196,0.35) 0%, rgba(74,127,196,0) 70%)",
-          filter: "blur(20px)",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          bottom: "-180px",
-          left: "-160px",
-          width: "480px",
-          height: "480px",
-          background: "radial-gradient(circle, rgba(200,150,86,0.18) 0%, rgba(200,150,86,0) 70%)",
-          filter: "blur(20px)",
-          pointerEvents: "none",
-        }}
-      />
       <style>{`
         .contact-whatsapp { transition: transform 0.2s ease, box-shadow 0.2s ease; }
         .contact-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(37, 211, 102, 0.30); }
       `}</style>
-      <div className="max-w-3xl mx-auto px-6" style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
+      <div className="max-w-3xl mx-auto px-6" style={{ textAlign: "center" }}>
         <p style={{
           color: "#4A7FC4",
           fontSize: "13px",
@@ -66,7 +37,7 @@ export default function Contact() {
           Contact
         </p>
         <h2 style={{
-          color: "#F5F1E8",
+          color: "#1E3A5F",
           fontSize: "clamp(28px, 3.5vw, 42px)",
           fontWeight: 500,
           letterSpacing: "-0.02em",
@@ -75,7 +46,7 @@ export default function Contact() {
         }}>
           Welk werk kost jouw team{" "}
           <span style={{
-            backgroundImage: "linear-gradient(90deg, #C5D7F0 0%, #4A7FC4 100%)",
+            backgroundImage: "linear-gradient(90deg, #4A7FC4 0%, #1E3A5F 100%)",
             WebkitBackgroundClip: "text",
             backgroundClip: "text",
             color: "transparent",
@@ -84,10 +55,9 @@ export default function Contact() {
           </span>
         </h2>
         <p style={{
-          color: "#C5D7F0",
+          color: "#5F5E5A",
           fontSize: "17px",
           lineHeight: 1.7,
-          marginBottom: "44px",
           maxWidth: "560px",
           margin: "0 auto 44px",
         }}>
@@ -124,7 +94,7 @@ export default function Contact() {
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              color: "#C5D7F0",
+              color: "#4A7FC4",
               fontSize: "14px",
               textDecoration: "none",
               opacity: 0.8,

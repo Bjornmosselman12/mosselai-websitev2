@@ -4,6 +4,7 @@ import TechStack from "@/components/TechStack";
 import Research from "@/components/Research";
 import Momentum from "@/components/Momentum";
 import HowItWorks from "@/components/HowItWorks";
+import Services from "@/components/Services";
 import QuizFunnel from "@/components/QuizFunnel";
 import Comparison from "@/components/Comparison";
 import About from "@/components/About";
@@ -26,6 +27,7 @@ export default function Home() {
         </div>
         <Momentum />
         <HowItWorks />
+        <Services />
         <ScrollObserver>
           <About />
         </ScrollObserver>
