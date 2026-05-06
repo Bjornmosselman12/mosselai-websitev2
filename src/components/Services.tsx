@@ -1,6 +1,6 @@
 "use client";
 
-import { Zap, Code2, Search, Layers } from "lucide-react";
+import { Zap, Search, Layers } from "lucide-react";
 
 export default function Services() {
   return (
@@ -30,19 +30,17 @@ export default function Services() {
         }
         .svc-grid {
           display: grid;
-          grid-template-columns: 2fr 1fr;
+          grid-template-columns: 1fr 2fr;
           grid-template-rows: auto auto;
           gap: 16px;
         }
-        /* AI: groot, spans 1 col maar volle hoogte van row 1 */
-        .svc-ai        { grid-column: 1; grid-row: 1; padding: 44px; }
-        .svc-proces    { grid-column: 2; grid-row: 1; padding: 28px; }
-        .svc-consult   { grid-column: 1; grid-row: 2; padding: 36px; }
-        .svc-websites  { grid-column: 2; grid-row: 2; padding: 22px; }
+        .svc-ai      { grid-column: 1 / -1; grid-row: 1; padding: 44px; }
+        .svc-proces  { grid-column: 1;      grid-row: 2; padding: 28px; }
+        .svc-consult { grid-column: 2;      grid-row: 2; padding: 36px; }
 
         @media (max-width: 767px) {
           .svc-grid { grid-template-columns: 1fr; }
-          .svc-ai, .svc-proces, .svc-consult, .svc-websites {
+          .svc-ai, .svc-proces, .svc-consult {
             grid-column: 1; grid-row: auto; padding: 28px;
           }
         }
@@ -118,22 +116,6 @@ export default function Services() {
             </h3>
             <p style={{ color: "#C5D7F0", fontSize: "15px", lineHeight: 1.75 }}>
               Voor organisaties die verder willen dan één losse automatisering. Complete digitale transformatie van A tot Z, van analyse tot livegang.
-            </p>
-          </div>
-
-          {/* ── Websites (klein) ── */}
-          <div className="svc-card svc-websites">
-            <div className="svc-icon" style={{ width: 36, height: 36, marginBottom: 14 }}>
-              <Code2 size={15} color="#C5D7F0" />
-            </div>
-            <p style={{ color: "#4A7FC4", fontSize: "10px", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "5px" }}>
-              Live in een week
-            </p>
-            <h3 style={{ color: "#F5F1E8", fontSize: "17px", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: "8px" }}>
-              Websites
-            </h3>
-            <p style={{ color: "#C5D7F0", fontSize: "12px", lineHeight: 1.65 }}>
-              Professionele websites met maatwerk design. Snel gebouwd, makkelijk te beheren.
             </p>
           </div>
 
