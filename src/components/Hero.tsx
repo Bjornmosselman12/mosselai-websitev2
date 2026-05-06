@@ -1,21 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, ChevronDown, Check } from "lucide-react";
+import { ChevronDown, Check } from "lucide-react";
 
 export default function Hero() {
-  const handleStartQuiz = () => {
-    const quizEl = document.getElementById("wat-we-doen");
-    if (quizEl) {
-      const y = quizEl.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: y, behavior: "smooth" });
-      setTimeout(() => {
-        const startBtn = quizEl.querySelector("button") as HTMLButtonElement | null;
-        if (startBtn) startBtn.click();
-      }, 700);
-    }
-  };
-
   return (
     <section
       id="hero"
@@ -110,48 +98,6 @@ export default function Hero() {
               dat is vandaag ploegen met ossen. Ik bouw de automatisering
               die dat overneemt. Werkend in vier weken, zonder dure software.
             </p>
-
-            {/* Actie-kaart */}
-            <div
-              className="animate-fade-in-up animate-delay-300"
-              style={{
-                backgroundColor: "#ffffff",
-                border: "1px solid #C5D7F0",
-                borderRadius: "14px",
-                padding: "18px 20px",
-                marginBottom: "16px",
-              }}
-            >
-              <p style={{ color: "#1E3A5F", fontSize: "14px", fontWeight: 500, marginBottom: "4px" }}>
-                Ontdek wat er bij jou automatisch kan
-              </p>
-              <p style={{ color: "#5F5E5A", fontSize: "12px", lineHeight: 1.5, marginBottom: "14px" }}>
-                5 vragen · 2 minuten · geen verplichtingen
-              </p>
-              <button
-                onClick={handleStartQuiz}
-                style={{
-                  width: "100%",
-                  backgroundColor: "#1E3A5F",
-                  color: "#F5F1E8",
-                  borderRadius: "9px",
-                  fontSize: "14px",
-                  fontWeight: 500,
-                  padding: "11px 20px",
-                  border: "none",
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "8px",
-                  fontFamily: "inherit",
-                }}
-                className="hover:opacity-90 transition-opacity duration-150"
-              >
-                Doe de check
-                <ArrowRight size={15} />
-              </button>
-            </div>
 
             {/* Proof-points + chevron */}
             <div
