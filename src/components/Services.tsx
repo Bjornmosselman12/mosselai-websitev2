@@ -10,12 +10,6 @@ const services = [
     desc: "Ik analyseer waar jullie tijd in zit en bouw de koppeling of logica die dat overneemt. Factuurverwerking, orderbevestigingen, rapportages — werkend binnen vier weken.",
   },
   {
-    icon: Code2,
-    kicker: "Gebouwd rond jouw werkwijze",
-    title: "Maatwerk software",
-    desc: "Custom portals, dashboards en applicaties die precies doen wat jullie nodig hebben. Geen licentiekosten voor functies die je toch niet gebruikt.",
-  },
-  {
     icon: Search,
     kicker: "Eerst begrijpen, dan bouwen",
     title: "Procesanalyse & advies",
@@ -26,6 +20,12 @@ const services = [
     kicker: "Van papier naar systeem",
     title: "Digitalisering & consultancy",
     desc: "Voor organisaties die verder willen dan één losse automatisering. Complete digitale transformatie van A tot Z — van analyse tot livegang.",
+  },
+  {
+    icon: Code2,
+    kicker: "Live in een week",
+    title: "Websites",
+    desc: "Professionele websites met maatwerk design. Snel gebouwd, makkelijk te beheren, en altijd in lijn met jouw uitstraling.",
   },
 ];
 
