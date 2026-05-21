@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import TechStack from "@/components/TechStack";
-import Research from "@/components/Research";
 import Momentum from "@/components/Momentum";
 import HowItWorks from "@/components/HowItWorks";
 import QuizFunnel from "@/components/QuizFunnel";
@@ -34,9 +33,6 @@ export default function Home() {
         </ScrollObserver>
         <ScrollObserver>
           <FAQ />
-        </ScrollObserver>
-        <ScrollObserver>
-          <Research />
         </ScrollObserver>
       </main>
       <Footer />

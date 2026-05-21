@@ -21,12 +21,18 @@ export const metadata: Metadata = {
     "orderverwerking",
     "workflow automatisering",
   ],
+  metadataBase: new URL("https://mosselai.nl"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "MosselAI | AI-automatisering voor bedrijven in de Hoeksche Waard",
     description:
       "MosselAI bouwt AI-automatiseringen voor ondernemers en bedrijven in de Hoeksche Waard. Werkend in vier weken, alleen betalen als het werkt.",
     type: "website",
     locale: "nl_NL",
+    url: "https://mosselai.nl",
+    siteName: "MosselAI",
   },
 };
 
@@ -37,7 +43,39 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl" className={`${inter.variable} h-full antialiased`}>
-      <head />
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "MosselAI",
+              description:
+                "AI-automatisering voor ondernemers en MKB-bedrijven in de Hoeksche Waard. Werkend in vier weken, alleen betalen als het werkt.",
+              url: "https://mosselai.nl",
+              email: "info@mosselai.com",
+              telephone: "+31612382576",
+              address: {
+                "@type": "PostalAddress",
+                addressRegion: "Zuid-Holland",
+                addressLocality: "Hoeksche Waard",
+                addressCountry: "NL",
+              },
+              areaServed: {
+                "@type": "AdministrativeArea",
+                name: "Hoeksche Waard",
+              },
+              founder: {
+                "@type": "Person",
+                name: "Bjorn Mosselman",
+              },
+              priceRange: "Op resultaatbasis",
+              knowsLanguage: "nl",
+            }),
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         {children}
         <Script
