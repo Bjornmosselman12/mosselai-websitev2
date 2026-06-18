@@ -28,6 +28,9 @@ export default function InloggenPage() {
       style={{
         minHeight: "100vh",
         backgroundColor: "#F5F1E8",
+        backgroundImage: "url('/wave-pattern.svg')",
+        backgroundRepeat: "repeat",
+        backgroundSize: "52px 52px",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -76,24 +79,13 @@ export default function InloggenPage() {
                 color: "#1E3A5F",
                 fontSize: "24px",
                 fontWeight: 500,
-                marginBottom: "10px",
+                marginBottom: "26px",
                 marginTop: 0,
                 letterSpacing: "-0.02em",
               }}
             >
               Inloggen
             </h1>
-            <p
-              style={{
-                color: "#5F5E5A",
-                fontSize: "14px",
-                lineHeight: 1.6,
-                marginBottom: "28px",
-                marginTop: 0,
-              }}
-            >
-              Vul je e-mailadres in. Je ontvangt direct een inloglink — geen wachtwoord nodig.
-            </p>
 
             {error && (
               <div
@@ -165,7 +157,7 @@ export default function InloggenPage() {
                   transition: "opacity 0.15s",
                 }}
               >
-                {isPending ? "Even geduld…" : "Stuur inloglink →"}
+                {isPending ? "Even geduld..." : "Login"}
               </button>
             </form>
 

@@ -67,45 +67,46 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Klantportaal login knop */}
-        <a
-          href="/inloggen"
-          className="header-cta hover:opacity-90 transition-opacity duration-150"
-          style={{
-            alignItems: "center",
-            gap: "6px",
-            backgroundColor: "transparent",
-            color: "#5F5E5A",
-            fontSize: "13px",
-            fontWeight: 400,
-            padding: "7px 12px",
-            borderRadius: "8px",
-            border: "1px solid #E8E4DB",
-            marginRight: "4px",
-          }}
-        >
-          <LogIn size={13} />
-          Klantportaal
-        </a>
+        {/* Desktop CTA's: telefoon + klantportaal, gegroepeerd rechts */}
+        <div className="header-cta" style={{ alignItems: "center", gap: "10px" }}>
+          <a
+            href={PHONE_HREF}
+            className="hover:opacity-90 transition-opacity duration-150"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "7px",
+              backgroundColor: "#1E3A5F",
+              color: "#F5F1E8",
+              fontSize: "14px",
+              fontWeight: 500,
+              padding: "8px 18px",
+              borderRadius: "8px",
+            }}
+          >
+            <Phone size={14} />
+            {PHONE_NUMBER}
+          </a>
 
-        {/* Desktop CTA */}
-        <a
-          href={PHONE_HREF}
-          className="header-cta hover:opacity-90 transition-opacity duration-150"
-          style={{
-            alignItems: "center",
-            gap: "7px",
-            backgroundColor: "#1E3A5F",
-            color: "#F5F1E8",
-            fontSize: "14px",
-            fontWeight: 500,
-            padding: "8px 18px",
-            borderRadius: "8px",
-          }}
-        >
-          <Phone size={14} />
-          {PHONE_NUMBER}
-        </a>
+          <a
+            href="/inloggen"
+            className="hover:opacity-90 transition-opacity duration-150"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              backgroundColor: "#E6EDF7",
+              color: "#1E3A5F",
+              fontSize: "14px",
+              fontWeight: 500,
+              padding: "8px 16px",
+              borderRadius: "8px",
+            }}
+          >
+            <LogIn size={14} />
+            Klantportaal
+          </a>
+        </div>
 
         {/* Mobile: phone icon + hamburger */}
         <div className="header-mobile" style={{ alignItems: "center", gap: "12px" }}>

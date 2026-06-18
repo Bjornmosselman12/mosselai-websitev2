@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <g fill="none" stroke="#DCD2BB" stroke-width="1" stroke-linecap="round">
+    <!-- Even rij, links (peak op de tegelrand) -->
+    <path d="M-20 20 A20 20 0 0 1 20 20" />
+    <path d="M-15.6 20 A15.6 15.6 0 0 1 15.6 20" />
+    <path d="M-11.2 20 A11.2 11.2 0 0 1 11.2 20" />
+    <path d="M-6.8 20 A6.8 6.8 0 0 1 6.8 20" />
+    <path d="M-2.8 20 A2.8 2.8 0 0 1 2.8 20" />
+    <!-- Even rij, rechts (peak op de tegelrand) -->
+    <path d="M20 20 A20 20 0 0 1 60 20" />
+    <path d="M24.4 20 A15.6 15.6 0 0 1 55.6 20" />
+    <path d="M28.8 20 A11.2 11.2 0 0 1 51.2 20" />
+    <path d="M33.2 20 A6.8 6.8 0 0 1 46.8 20" />
+    <path d="M37.2 20 A2.8 2.8 0 0 1 42.8 20" />
+    <!-- Oneven rij, midden (peak in het dal van de even rij) -->
+    <path d="M0 40 A20 20 0 0 1 40 40" />
+    <path d="M4.4 40 A15.6 15.6 0 0 1 35.6 40" />
+    <path d="M8.8 40 A11.2 11.2 0 0 1 31.2 40" />
+    <path d="M13.2 40 A6.8 6.8 0 0 1 26.8 40" />
+    <path d="M17.2 40 A2.8 2.8 0 0 1 22.8 40" />
+  </g>
+</svg>
