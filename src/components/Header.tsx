@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, LogIn } from "lucide-react";
 
 const navLinks = [
   { label: "Hoe het werkt", href: "/#hoe-het-werkt" },
@@ -67,23 +67,25 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Onderzoek link */}
+        {/* Klantportaal login knop */}
         <a
-          href="/onderzoek"
+          href="/inloggen"
           className="header-cta hover:opacity-90 transition-opacity duration-150"
           style={{
             alignItems: "center",
             gap: "6px",
-            backgroundColor: "#E6EDF7",
-            color: "#1E3A5F",
+            backgroundColor: "transparent",
+            color: "#5F5E5A",
             fontSize: "13px",
-            fontWeight: 500,
-            padding: "7px 14px",
-            borderRadius: "999px",
+            fontWeight: 400,
+            padding: "7px 12px",
+            borderRadius: "8px",
+            border: "1px solid #E8E4DB",
             marginRight: "4px",
           }}
         >
-          Doe mee aan het onderzoek →
+          <LogIn size={13} />
+          Klantportaal
         </a>
 
         {/* Desktop CTA */}
@@ -151,11 +153,12 @@ export default function Header() {
               </a>
             ))}
             <a
-              href="/onderzoek"
-              style={{ color: "#2C2C2E", fontSize: "15px" }}
+              href="/inloggen"
+              style={{ color: "#5F5E5A", fontSize: "15px", display: "flex", alignItems: "center", gap: "6px" }}
               onClick={() => setMenuOpen(false)}
             >
-              Doe mee aan het onderzoek →
+              <LogIn size={14} />
+              Klantportaal
             </a>
             <a
               href="/#contact"
