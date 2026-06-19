@@ -10,8 +10,7 @@ const faqs = [
       "Als jullie elke week dezelfde taken handmatig doen, is er ruimte om iets te automatiseren. In het eerste gesprek kijken we mee in jullie proces en zien we direct waar kansen zitten. Aan dat gesprek zijn geen kosten verbonden.",
   },
   {
-    question:
-      "Wat is anders dan een SaaS-pakket zoals Basecone of een vergelijkbare oplossing?",
+    question: "Wat is anders dan een SaaS-pakket of een vergelijkbare oplossing?",
     answer:
       "SaaS-pakketten dwingen hun eigen werkwijze op. Wij bouwen rond jullie bestaande proces. De software die je nu gebruikt blijft, de manier waarop jullie werken blijft, alleen het handwerk in het midden vervangen wij. Geen overstap, geen leertraject voor je team.",
   },
