@@ -46,11 +46,22 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center" style={{ flexShrink: 0 }} aria-label="MosselAI">
-          <img
-            src="/logo.png"
-            alt="MosselAI"
-            style={{ height: "60px", width: "auto", display: "block" }}
-          />
+          <span
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              backgroundColor: "#ffffff",
+              borderRadius: "12px",
+              padding: "6px 15px",
+              boxShadow: "0 2px 8px rgba(30,58,95,0.12), 0 0 0 1px rgba(30,58,95,0.05)",
+            }}
+          >
+            <img
+              src="/logo.png"
+              alt="MosselAI"
+              style={{ height: "44px", width: "auto", display: "block" }}
+            />
+          </span>
         </a>
 
         {/* Desktop nav */}
@@ -155,10 +166,22 @@ export default function Header() {
             ))}
             <a
               href="/inloggen"
-              style={{ color: "#5F5E5A", fontSize: "15px", display: "flex", alignItems: "center", gap: "6px" }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "6px",
+                backgroundColor: "#E6EDF7",
+                color: "#1E3A5F",
+                fontSize: "15px",
+                fontWeight: 500,
+                padding: "10px 18px",
+                borderRadius: "8px",
+                marginTop: "4px",
+              }}
               onClick={() => setMenuOpen(false)}
             >
-              <LogIn size={14} />
+              <LogIn size={15} />
               Klantportaal
             </a>
             <a
