@@ -27,7 +27,7 @@ const options = [
   },
 ];
 
-export default function ContactPopup() {
+export default function ContactPopup({ label = "Neem contact op" }: { label?: string }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -55,7 +55,7 @@ export default function ContactPopup() {
         onMouseOver={(e) => (e.currentTarget.style.opacity = "0.85")}
         onMouseOut={(e) => (e.currentTarget.style.opacity = "1")}
       >
-        Neem contact op
+        {label}
         <ChevronDown
           size={15}
           style={{ transition: "transform 0.2s", transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
