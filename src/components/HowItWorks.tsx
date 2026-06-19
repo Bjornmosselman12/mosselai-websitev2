@@ -13,7 +13,7 @@ const steps = [
   },
   {
     number: "03",
-    title: "Je betaalt pas als het operationeel is",
+    title: "Je betaalt pas bij resultaat",
     description:
       "De automatisering draait eerst mee in je dagelijkse werk. Pas daarna volgt de factuur, geen kosten vooraf. Je betaalt voor een resultaat, niet voor een traject.",
   },
