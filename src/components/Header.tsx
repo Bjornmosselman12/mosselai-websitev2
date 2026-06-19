@@ -46,22 +46,11 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center" style={{ flexShrink: 0 }} aria-label="MosselAI">
-          <span
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              backgroundColor: "#ffffff",
-              borderRadius: "12px",
-              padding: "6px 15px",
-              boxShadow: "0 2px 8px rgba(30,58,95,0.12), 0 0 0 1px rgba(30,58,95,0.05)",
-            }}
-          >
-            <img
-              src="/logo.png"
-              alt="MosselAI"
-              style={{ height: "44px", width: "auto", display: "block" }}
-            />
-          </span>
+          <img
+            src="/logo.png"
+            alt="MosselAI"
+            style={{ height: "60px", width: "auto", display: "block" }}
+          />
         </a>
 
         {/* Desktop nav */}

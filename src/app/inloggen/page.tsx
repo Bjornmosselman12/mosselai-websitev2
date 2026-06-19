@@ -39,24 +39,13 @@ export default function InloggenPage() {
       }}
     >
       {/* Logo boven het kaartje */}
-      <div style={{ position: "absolute", top: "24px", left: "24px" }}>
-        <a href="/" aria-label="MosselAI" style={{ display: "inline-block" }}>
-          <span
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              backgroundColor: "#ffffff",
-              borderRadius: "12px",
-              padding: "6px 15px",
-              boxShadow: "0 2px 8px rgba(30,58,95,0.12), 0 0 0 1px rgba(30,58,95,0.05)",
-            }}
-          >
-            <img
-              src="/logo.png"
-              alt="MosselAI"
-              style={{ height: "42px", width: "auto", display: "block" }}
-            />
-          </span>
+      <div style={{ position: "absolute", top: "28px", left: "32px" }}>
+        <a href="/" aria-label="MosselAI">
+          <img
+            src="/logo.png"
+            alt="MosselAI"
+            style={{ height: "48px", width: "auto" }}
+          />
         </a>
       </div>
 
