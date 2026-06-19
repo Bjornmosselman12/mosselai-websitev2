@@ -27,7 +27,13 @@ const options = [
   },
 ];
 
-export default function ContactPopup({ label = "Neem contact op" }: { label?: string }) {
+export default function ContactPopup({
+  label = "Neem contact op",
+  variant = "dark",
+}: {
+  label?: string;
+  variant?: "dark" | "light";
+}) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -46,7 +52,8 @@ export default function ContactPopup({ label = "Neem contact op" }: { label?: st
         onClick={() => setOpen((o) => !o)}
         style={{
           display: "inline-flex", alignItems: "center", gap: "8px",
-          backgroundColor: "#1E3A5F", color: "#F5F1E8",
+          backgroundColor: variant === "light" ? "#F5F1E8" : "#1E3A5F",
+          color: variant === "light" ? "#1E3A5F" : "#F5F1E8",
           borderRadius: "8px", padding: "12px 22px",
           fontSize: "14px", fontWeight: 500, border: "none",
           cursor: "pointer", fontFamily: "inherit",
