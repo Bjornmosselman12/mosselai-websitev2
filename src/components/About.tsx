@@ -1,10 +1,4 @@
-import { MapPin, Code2 } from "lucide-react";
 import ContactPopup from "@/components/ContactPopup";
-
-const highlights = [
-  { icon: MapPin, label: "Hoeksche Waard, Zuid-Holland" },
-  { icon: Code2, label: "Softwareontwikkeling & AI-automatisering" },
-];
 
 export default function About() {
   return (
@@ -41,12 +35,12 @@ export default function About() {
                 fontSize: "clamp(28px, 3.5vw, 36px)",
                 fontWeight: 500,
                 letterSpacing: "-0.02em",
-                lineHeight: 1.2,
+                lineHeight: 1.25,
                 marginBottom: "24px",
               }}
             >
-              Eindelijk iemand die het begrijpt{" "}
-              <span className="gradient-text">zonder gedoe.</span>
+              AI hoort in je bestaande werk te passen,{" "}
+              <span className="gradient-text">niet andersom.</span>
             </h2>
             <p
               style={{
@@ -56,57 +50,37 @@ export default function About() {
                 marginBottom: "16px",
               }}
             >
-              {/* {{ PLACEHOLDER: vervang door persoonlijke tekst zodra klaar }} */}
-              MosselAI is opgericht door{" "}
-              <strong style={{ fontWeight: 500 }}>
-                Bjorn Mosselman
-              </strong>
-              . Met een achtergrond in softwareontwikkeling en een passie voor
-              praktische technologie, bouw ik automatiseringen die écht werken
-              voor lokale ondernemers.
+              MosselAI is een Nederlands bedrijf voor AI-automatisering in het
+              MKB. We bouwen werkende oplossingen in de software die je al
+              gebruikt, ontworpen voor de manier waarop het MKB werkt: concreet,
+              betaalbaar, snel zichtbaar.
             </p>
             <p
               style={{
                 color: "#2C2C2E",
                 fontSize: "16px",
                 lineHeight: 1.8,
+                marginBottom: "28px",
+              }}
+            >
+              Geen lange trajecten, geen platforms om aan te wennen. We komen
+              langs, brengen je proces in kaart, en vervangen alleen het
+              handwerk waar AI iets toevoegt.
+            </p>
+            <p
+              style={{
+                color: "#5F5E5A",
+                fontSize: "14px",
+                lineHeight: 1.7,
                 marginBottom: "32px",
               }}
             >
-              Geen buzzwords, geen gedoe. Gewoon: wat kost jou nu wekelijks tijd, en
-              hoe laten we dat vanzelf lopen?
+              Opgericht door{" "}
+              <strong style={{ fontWeight: 500, color: "#2C2C2E" }}>
+                Bjorn Mosselman
+              </strong>
+              . Gevestigd in de Hoeksche Waard, werkzaam in heel Nederland.
             </p>
-
-            {/* Highlights */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "32px" }}>
-              {highlights.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <div
-                    key={item.label}
-                    style={{ display: "flex", alignItems: "center", gap: "12px" }}
-                  >
-                    <div
-                      style={{
-                        width: "32px",
-                        height: "32px",
-                        backgroundColor: "#E6EDF7",
-                        borderRadius: "6px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexShrink: 0,
-                      }}
-                    >
-                      <Icon size={15} color="#4A7FC4" />
-                    </div>
-                    <span style={{ color: "#5F5E5A", fontSize: "14px" }}>
-                      {item.label}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
 
             {/* CTA */}
             <ContactPopup />
