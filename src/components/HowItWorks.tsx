@@ -13,7 +13,7 @@ const steps = [
   },
   {
     number: "03",
-    title: "Je betaalt alleen als het werkt",
+    title: "Je betaalt pas als het operationeel is",
     description:
       "Pas als de automatisering draait, stuur ik een factuur. Maandelijks opzegbaar, geen contract. Werkt het, dan blijft het. Werkt het niet meer, dan stop je zonder gedoe.",
   },
