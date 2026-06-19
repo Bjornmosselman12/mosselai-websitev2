@@ -55,7 +55,7 @@ export default function Hero() {
               color: "#1E3A5F",
               fontSize: "clamp(36px, 6vw, 60px)",
               fontWeight: 500,
-              lineHeight: 1.08,
+              lineHeight: 1.14,
               letterSpacing: "-0.03em",
               marginBottom: "24px",
             }}
@@ -64,6 +64,9 @@ export default function Hero() {
             <span
               style={{
                 display: "block",
+                textWrap: "balance",
+                lineHeight: 1.2,
+                paddingBottom: "0.12em",
                 backgroundImage: "linear-gradient(90deg, #4A7FC4 0%, #1E3A5F 100%)",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
