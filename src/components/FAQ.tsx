@@ -5,34 +5,35 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    question: "Wat kost het?",
+    question: "Hoe weet ik of mijn bedrijf hier baat bij heeft?",
     answer:
-      "Geen opstartkosten en geen vaste projectprijs vooraf. We bespreken wat de automatisering doet en hoe complex het is. Op basis daarvan noem ik een maandelijks bedrag dat we samen vastleggen voordat ik begin. Zo weet je precies waar je aan toe bent, zonder verrassingen achteraf.",
+      "Als jullie elke week dezelfde taken handmatig doen, is er ruimte om iets te automatiseren. In het eerste gesprek kijken we mee in jullie proces en zien we direct waar kansen zitten. Aan dat gesprek zijn geen kosten verbonden.",
   },
   {
-    question: "Hoe werkt de betaling precies?",
+    question:
+      "Wat is anders dan een SaaS-pakket zoals Basecone of een vergelijkbare oplossing?",
     answer:
-      "Maandelijks, zonder contract of opzegtermijn. Je betaalt zolang de automatisering waarde levert. Wil je stoppen, dan zeg je het op en klaar. Geen boete, geen gedoe. Die vrijheid houdt mij scherp: mijn prikkel is dat het blijft werken.",
+      "SaaS-pakketten dwingen hun eigen werkwijze op. Wij bouwen rond jullie bestaande proces. De software die je nu gebruikt blijft, de manier waarop jullie werken blijft, alleen het handwerk in het midden vervangen wij. Geen overstap, geen leertraject voor je team.",
   },
   {
-    question: "Hoe lang duurt een project?",
+    question: "Waarom niet zelf met ChatGPT aan de slag?",
     answer:
-      "Een eerste pilot duurt gemiddeld 2 tot 4 weken. Ik start klein en concreet: één taak, goed gedaan. Zodra die werkt, kijken we samen of er meer te automatiseren valt.",
+      "Met ChatGPT moet jij of je team iedere keer aan de knoppen. Een prompt bedenken, output controleren, overzetten naar je eigen software. Bij ons draait het systeem zelfstandig in je bestaande omgeving. Geen prompts, geen kopiëren en plakken, geen iemand die het hoeft aan te sturen. Het werk wordt gedaan, ook 's nachts en in het weekend.",
   },
   {
-    question: "Is mijn data veilig?",
+    question: "Wat betekent dit voor mijn team?",
     answer:
-      "Ja. Ik werk uitsluitend met gerenommeerde platforms (zoals Make, n8n en OpenAI). Jouw data verlaat nooit de tools die jij zelf al gebruikt of goedkeurt. Ik teken indien gewenst een verwerkersovereenkomst (AVG-compliant).",
+      "Niets ingewikkelds. Wij vervangen alleen het handwerk in het midden van een proces. De output blijft hetzelfde, de software blijft hetzelfde, het werk dat mensen interessant vinden blijft hetzelfde. Wat verdwijnt is het saaie repeterende werk dat niemand graag deed.",
   },
   {
     question: "Wat als het niet werkt?",
     answer:
-      "Dan betaal je niets. Dat is geen marketingpraatje, het is letterlijk hoe ik werk. Als de automatisering geen aantoonbare tijdsbesparing oplevert, reken ik niets. Ik neem het risico.",
+      "Dan betaal je niets. Vooraf leggen we samen vast wat \"werkt\" voor jullie betekent. Werkt de pilot niet zoals afgesproken, dan stopt het zonder factuur.",
   },
   {
-    question: "Werk je ook buiten de Hoeksche Waard?",
+    question: "Wat kost het?",
     answer:
-      "Mijn focus ligt op de Hoeksche Waard en de omliggende regio in Zuid-Holland. Voor bedrijven buiten de regio werk ik ook samen. Neem contact op en ik kijk wat mogelijk is.",
+      "Afhankelijk van wat past in jullie situatie. Voor de ene klant werken we met een vast maandbedrag, voor de andere met een eenmalige bouw plus maandservice. In de verkenning kijken we welk model bij jullie aanpak past en stellen we het bedrag vooraf vast.",
   },
 ];
 
