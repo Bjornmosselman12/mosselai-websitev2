@@ -1,27 +1,21 @@
 const steps = [
   {
-    number: "1",
-    title: "Kennismaking en je proces in kaart",
+    number: "01",
+    title: "We brengen je proces in kaart",
     description:
-      "Alles begint met een eerlijk gesprek over jouw bedrijf. Geen pitch. Samen kijken we waar je wekelijks tijd aan verliest: welke e-mails komen elke week terug, welke gegevens worden overgetypt die ergens anders al staan. Dat leg ik concreet vast.",
+      "Geen pitch. Een eerlijk gesprek over jouw bedrijf en welk werk elke week terugkomt. Samen kijken we waar handwerk zit dat AI kan overnemen.",
   },
   {
-    number: "2",
-    title: "Eén pilot, vier weken",
+    number: "02",
+    title: "We bouwen in jouw software",
     description:
-      "Geen grote trajecten. Ik pak één taak: de taak waar je het meeste tijd aan verliest, en bouw daar een werkende oplossing voor. Die draait zelfstandig in je bestaande tools (Gmail, Outlook, Excel, Exact). Onderhoud en updates zijn inbegrepen.",
+      "Eén taak, vier weken. We bouwen in de tools die je al gebruikt en passen aan tot het doet wat we vooraf hebben afgesproken. Onderhoud en updates inbegrepen.",
   },
   {
-    number: "3",
-    title: "Jij test, ik pas aan",
-    description:
-      "Je draait ermee in de praktijk. Werkt iets niet zoals afgesproken? Dan pas ik aan tot het doet wat we samen hebben vastgelegd.",
-  },
-  {
-    number: "4",
+    number: "03",
     title: "Je betaalt alleen als het werkt",
     description:
-      "Pas als de automatisering live staat en naar tevredenheid werkt, stuur ik een factuur. Elke maand opnieuw: werkt het nog? Dan gaat het door. Werkt het niet meer? Dan stop je, zonder gedoe.",
+      "Pas als de automatisering draait, stuur ik een factuur. Maandelijks opzegbaar, geen contract. Werkt het, dan blijft het. Werkt het niet meer, dan stop je zonder gedoe.",
   },
 ];
 
@@ -45,13 +39,13 @@ export default function HowItWorks() {
           padding: 64px;
           box-shadow: 0 18px 50px rgba(30, 58, 95, 0.09);
           display: grid;
-          grid-template-columns: 110px 1fr;
-          gap: 40px;
+          grid-template-columns: 128px 1fr;
+          gap: 36px;
           align-items: center;
         }
         .hiw-number {
           color: #E0DDD6;
-          font-size: 100px;
+          font-size: 90px;
           font-weight: 700;
           line-height: 1;
           user-select: none;
@@ -73,10 +67,10 @@ export default function HowItWorks() {
           .hiw-card-inner {
             padding: 32px 28px;
             border-radius: 18px;
-            grid-template-columns: 64px 1fr;
-            gap: 20px;
+            grid-template-columns: 76px 1fr;
+            gap: 18px;
           }
-          .hiw-number { font-size: 56px; }
+          .hiw-number { font-size: 52px; }
           .hiw-title  { font-size: 19px; margin-bottom: 10px; }
           .hiw-desc   { font-size: 14.5px; line-height: 1.7; }
           .hiw-card + .hiw-card { margin-top: 55vh; }
@@ -84,10 +78,10 @@ export default function HowItWorks() {
         @media (max-width: 480px) {
           .hiw-card-inner {
             padding: 28px 22px;
-            grid-template-columns: 48px 1fr;
+            grid-template-columns: 58px 1fr;
             gap: 14px;
           }
-          .hiw-number { font-size: 44px; }
+          .hiw-number { font-size: 40px; }
           .hiw-title  { font-size: 17px; }
           .hiw-desc   { font-size: 14px; }
         }
@@ -120,7 +114,7 @@ export default function HowItWorks() {
               letterSpacing: "-0.02em",
               lineHeight: 1.2,
             }}>
-              Van eerste gesprek tot werkende automatisering; in vier stappen.
+              Van eerste gesprek naar werkende automatisering.
             </h2>
           </div>
 
