@@ -15,7 +15,7 @@ const steps = [
     number: "03",
     title: "Je betaalt pas als het operationeel is",
     description:
-      "Pas als de automatisering draait, stuur ik een factuur. Maandelijks opzegbaar, geen contract. Werkt het, dan blijft het. Werkt het niet meer, dan stop je zonder gedoe.",
+      "De automatisering draait eerst mee in je dagelijkse werk. Pas daarna volgt de factuur, geen kosten vooraf. Je betaalt voor een resultaat, niet voor een traject.",
   },
 ];
 
