@@ -30,7 +30,7 @@ export default function InloggenPage() {
         backgroundColor: "#F5F1E8",
         backgroundImage: "url('/wave-pattern.svg')",
         backgroundRepeat: "repeat",
-        backgroundSize: "52px 52px",
+        backgroundSize: "110px 60px",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
