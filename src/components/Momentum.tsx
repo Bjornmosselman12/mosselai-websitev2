@@ -84,13 +84,22 @@ export default function Momentum() {
       const total = section.offsetHeight - window.innerHeight;
       const scrolled = -rect.top;
       const p = Math.max(0, Math.min(1, scrolled / total));
-      const tx = p * (blocks.length - 1) * 100;
+
+      // Dwell per blok, dan een vloeiende overgang. Zo blijft elk blok even
+      // staan voordat het doorschuift, net als het stappenplan eronder.
+      const N = blocks.length;
+      const seg = p * (N - 1);
+      const i = Math.min(N - 2, Math.floor(seg));
+      const f = seg - i;
+      const t = Math.max(0, Math.min(1, (f - 0.35) / 0.3));
+      const eased = t * t * (3 - 2 * t);
+      const tx = (i + eased) * 100;
       track.style.transform = `translate3d(-${tx}vw, 0, 0)`;
 
       if (dots) {
-        const active = Math.round(p * (blocks.length - 1));
-        Array.from(dots.children).forEach((node, i) => {
-          (node as HTMLElement).dataset.active = i === active ? "true" : "false";
+        const active = Math.round(tx / 100);
+        Array.from(dots.children).forEach((node, idx) => {
+          (node as HTMLElement).dataset.active = idx === active ? "true" : "false";
         });
       }
     };
@@ -128,7 +137,7 @@ export default function Momentum() {
       ref={sectionRef}
       style={{
         backgroundColor: "#1E3A5F",
-        height: `${blocks.length * 100}vh`,
+        height: `${blocks.length * 140}vh`,
         position: "relative",
       }}
     >
