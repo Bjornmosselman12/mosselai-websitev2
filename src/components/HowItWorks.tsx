@@ -1,30 +1,24 @@
 const steps = [
   {
     number: "1",
-    title: "Gratis kennismaking",
+    title: "Kennismaking en je proces in kaart",
     description:
-      "Alles begint met een eerlijk gesprek over jouw bedrijf. Geen pitch. Wat kost jou nu wekelijks tijd, en is dat iets wat automatisch kan lopen?",
+      "Alles begint met een eerlijk gesprek over jouw bedrijf. Geen pitch. Samen kijken we waar je wekelijks tijd aan verliest: welke e-mails komen elke week terug, welke gegevens worden overgetypt die ergens anders al staan. Dat leg ik concreet vast.",
   },
   {
     number: "2",
-    title: "Ik breng je proces in kaart",
-    description:
-      "Samen kijken we waar de herhaling zit. Welke e-mails komen elke week terug? Welke gegevens worden overgetypt die ergens anders al staan? Dat leg ik concreet vast.",
-  },
-  {
-    number: "3",
     title: "Eén pilot, vier weken",
     description:
       "Geen grote trajecten. Ik pak één taak: de taak waar je het meeste tijd aan verliest, en bouw daar een werkende oplossing voor. Die draait zelfstandig in je bestaande tools (Gmail, Outlook, Excel, Exact). Onderhoud en updates zijn inbegrepen.",
   },
   {
-    number: "4",
+    number: "3",
     title: "Jij test, ik pas aan",
     description:
       "Je draait ermee in de praktijk. Werkt iets niet zoals afgesproken? Dan pas ik aan tot het doet wat we samen hebben vastgelegd.",
   },
   {
-    number: "5",
+    number: "4",
     title: "Je betaalt alleen als het werkt",
     description:
       "Pas als de automatisering live staat en naar tevredenheid werkt, stuur ik een factuur. Elke maand opnieuw: werkt het nog? Dan gaat het door. Werkt het niet meer? Dan stop je, zonder gedoe.",
@@ -126,7 +120,7 @@ export default function HowItWorks() {
               letterSpacing: "-0.02em",
               lineHeight: 1.2,
             }}>
-              Van eerste gesprek tot werkende automatisering; in vijf stappen.
+              Van eerste gesprek tot werkende automatisering; in vier stappen.
             </h2>
           </div>
 
