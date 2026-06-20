@@ -2,8 +2,31 @@
 
 import { ChevronDown, Check } from "lucide-react";
 import ContactPopup from "@/components/ContactPopup";
+import { useLang } from "@/lib/i18n";
+
+const T = {
+  nl: {
+    badge: "AI-automatisering · Hoeksche Waard",
+    line1: "Elke week opnieuw hetzelfde werk.",
+    line2: "Tijd dat het vanzelf gaat.",
+    sub: "Je werkt voor je bedrijf, maar veel tijd gaat naar werk dat een computer ook kan doen. Wij bouwen AI-automatiseringen die dat overnemen, in jouw eigen tools, voor een vast bedrag per maand.",
+    cta: "Vraag een gratis verkenning aan",
+    proof: ["Werkt in jouw eigen software", "Werkend in weken", "Alleen betalen als 't werkt"],
+  },
+  en: {
+    badge: "AI automation · Hoeksche Waard",
+    line1: "The same work, week after week.",
+    line2: "Time it ran by itself.",
+    sub: "You work for your business, but a lot of time goes into work a computer could do too. We build AI automations that take it over, inside your own tools, for a fixed monthly fee.",
+    cta: "Request a free scan",
+    proof: ["Works in your own software", "Live in weeks", "Only pay when it works"],
+  },
+};
 
 export default function Hero() {
+  const { lang } = useLang();
+  const t = T[lang];
+
   return (
     <section
       id="hero"
@@ -45,7 +68,7 @@ export default function Hero() {
             }}
           >
             <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#4A7FC4", display: "inline-block", flexShrink: 0 }} />
-            AI-automatisering · Hoeksche Waard
+            {t.badge}
           </div>
 
           {/* Headline */}
@@ -60,7 +83,7 @@ export default function Hero() {
               marginBottom: "24px",
             }}
           >
-            <span style={{ display: "block", textWrap: "balance" }}>Elke week opnieuw hetzelfde werk.</span>
+            <span style={{ display: "block", textWrap: "balance" }}>{t.line1}</span>
             <span
               style={{
                 display: "block",
@@ -73,7 +96,7 @@ export default function Hero() {
                 color: "transparent",
               }}
             >
-              Tijd dat het vanzelf gaat.
+              {t.line2}
             </span>
           </h1>
 
@@ -88,14 +111,12 @@ export default function Hero() {
               maxWidth: "620px",
             }}
           >
-            Je werkt voor je bedrijf, maar veel tijd gaat naar werk dat een
-            computer ook kan doen. Wij bouwen AI-automatiseringen die dat
-            overnemen, in jouw eigen tools, voor een vast bedrag per maand.
+            {t.sub}
           </p>
 
           {/* CTA */}
           <div className="animate-fade-in-up animate-delay-300" style={{ marginBottom: "28px" }}>
-            <ContactPopup label="Vraag een gratis verkenning aan" />
+            <ContactPopup label={t.cta} />
           </div>
 
           {/* Proof-points */}
@@ -103,7 +124,7 @@ export default function Hero() {
             className="animate-fade-in-up animate-delay-400"
             style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "16px" }}
           >
-            {["Werkt in jouw eigen software", "Werkend in weken", "Alleen betalen als 't werkt"].map((item) => (
+            {t.proof.map((item) => (
               <div key={item} style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#5F5E5A", fontSize: "13px" }}>
                 <Check size={13} color="#4A7FC4" strokeWidth={3} />
                 {item}
@@ -116,7 +137,7 @@ export default function Hero() {
             href="#hoe-het-werkt"
             className="animate-fade-in-up animate-delay-400 hover:opacity-60 transition-opacity"
             style={{ color: "#5F5E5A", opacity: 0.3, marginTop: "30px" }}
-            aria-label="Scroll omlaag"
+            aria-label="Scroll"
           >
             <ChevronDown size={20} />
           </a>

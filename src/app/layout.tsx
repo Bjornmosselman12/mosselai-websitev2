@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { LanguageProvider } from "@/lib/i18n";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -77,7 +78,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
         <Script
           src="https://plausible.io/js/pa-ZJoP4y_ksLsiPq3ytXxaU.js"
           strategy="afterInteractive"

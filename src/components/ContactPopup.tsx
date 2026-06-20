@@ -2,25 +2,29 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Phone, Mail, MessageCircle, ChevronDown } from "lucide-react";
+import { useLang } from "@/lib/i18n";
 
 const options = [
   {
     icon: MessageCircle,
-    label: "WhatsApp",
+    labelNl: "WhatsApp",
+    labelEn: "WhatsApp",
     sub: "+31 6 12 38 25 76",
     href: "https://wa.me/31612382576",
     target: "_blank",
   },
   {
     icon: Phone,
-    label: "Bellen",
+    labelNl: "Bellen",
+    labelEn: "Call",
     sub: "+31 6 12 38 25 76",
     href: "tel:+31612382576",
     target: "_self",
   },
   {
     icon: Mail,
-    label: "E-mail",
+    labelNl: "E-mail",
+    labelEn: "Email",
     sub: "info@mosselai.com",
     href: "mailto:info@mosselai.com",
     target: "_self",
@@ -28,7 +32,7 @@ const options = [
 ];
 
 export default function ContactPopup({
-  label = "Neem contact op",
+  label,
   variant = "dark",
 }: {
   label?: string;
@@ -36,6 +40,9 @@ export default function ContactPopup({
 }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const { lang } = useLang();
+
+  const display = label ?? (lang === "en" ? "Get in touch" : "Neem contact op");
 
   useEffect(() => {
     if (!open) return;
@@ -62,7 +69,7 @@ export default function ContactPopup({
         onMouseOver={(e) => (e.currentTarget.style.opacity = "0.85")}
         onMouseOut={(e) => (e.currentTarget.style.opacity = "1")}
       >
-        {label}
+        {display}
         <ChevronDown
           size={15}
           style={{ transition: "transform 0.2s", transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
@@ -86,9 +93,10 @@ export default function ContactPopup({
           `}</style>
           {options.map((o) => {
             const Icon = o.icon;
+            const optLabel = lang === "en" ? o.labelEn : o.labelNl;
             return (
               <a
-                key={o.label}
+                key={optLabel}
                 href={o.href}
                 target={o.target}
                 rel={o.target === "_blank" ? "noopener noreferrer" : undefined}
@@ -97,7 +105,7 @@ export default function ContactPopup({
                 style={{
                   display: "flex", alignItems: "center", gap: "14px",
                   padding: "14px 18px", textDecoration: "none",
-                  borderBottom: o.label !== "E-mail" ? "1px solid #F0EDE8" : "none",
+                  borderBottom: o.icon !== Mail ? "1px solid #F0EDE8" : "none",
                   transition: "background-color 0.15s",
                 }}
               >
@@ -110,7 +118,7 @@ export default function ContactPopup({
                 </div>
                 <div>
                   <p style={{ color: "#1E3A5F", fontSize: "14px", fontWeight: 500, margin: 0, lineHeight: 1.2 }}>
-                    {o.label}
+                    {optLabel}
                   </p>
                   <p style={{ color: "#5F5E5A", fontSize: "12px", margin: "2px 0 0" }}>
                     {o.sub}

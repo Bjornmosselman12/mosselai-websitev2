@@ -1,6 +1,39 @@
+"use client";
+
 import ContactPopup from "@/components/ContactPopup";
+import { useLang } from "@/lib/i18n";
+
+const T = {
+  nl: {
+    kicker: "Over MosselAI",
+    headingPre: "AI hoort in je bestaande werk te passen, ",
+    headingAccent: "niet andersom.",
+    para1:
+      "MosselAI is een Nederlands bedrijf voor AI-automatisering in het MKB. We bouwen werkende oplossingen in de software die je al gebruikt, ontworpen voor de manier waarop het MKB werkt: concreet, betaalbaar, snel zichtbaar.",
+    para2:
+      "Geen lange trajecten, geen platforms om aan te wennen. We komen langs, brengen je proces in kaart, en vervangen alleen het handwerk waar AI iets toevoegt.",
+    closingPre: "Opgericht door ",
+    closingPost:
+      ". Gevestigd in de Hoeksche Waard, werkzaam in heel Nederland.",
+  },
+  en: {
+    kicker: "About MosselAI",
+    headingPre: "AI should fit into your existing work, ",
+    headingAccent: "not the other way around.",
+    para1:
+      "MosselAI is a Dutch company for AI automation in small and medium businesses. We build working solutions inside the software you already use, designed for the way SMEs work: concrete, affordable, quick to show results.",
+    para2:
+      "No long projects, no platforms to get used to. We come by, map your process, and replace only the manual work where AI adds something.",
+    closingPre: "Founded by ",
+    closingPost:
+      ". Based in the Hoeksche Waard, working throughout the Netherlands.",
+  },
+};
 
 export default function About() {
+  const { lang } = useLang();
+  const t = T[lang];
+
   return (
     <section
       id="over"
@@ -27,7 +60,7 @@ export default function About() {
                 marginBottom: "12px",
               }}
             >
-              Over MosselAI
+              {t.kicker}
             </p>
             <h2
               style={{
@@ -39,8 +72,8 @@ export default function About() {
                 marginBottom: "24px",
               }}
             >
-              AI hoort in je bestaande werk te passen,{" "}
-              <span className="gradient-text">niet andersom.</span>
+              {t.headingPre}
+              <span className="gradient-text">{t.headingAccent}</span>
             </h2>
             <p
               style={{
@@ -50,10 +83,7 @@ export default function About() {
                 marginBottom: "16px",
               }}
             >
-              MosselAI is een Nederlands bedrijf voor AI-automatisering in het
-              MKB. We bouwen werkende oplossingen in de software die je al
-              gebruikt, ontworpen voor de manier waarop het MKB werkt: concreet,
-              betaalbaar, snel zichtbaar.
+              {t.para1}
             </p>
             <p
               style={{
@@ -63,9 +93,7 @@ export default function About() {
                 marginBottom: "28px",
               }}
             >
-              Geen lange trajecten, geen platforms om aan te wennen. We komen
-              langs, brengen je proces in kaart, en vervangen alleen het
-              handwerk waar AI iets toevoegt.
+              {t.para2}
             </p>
             <p
               style={{
@@ -75,11 +103,11 @@ export default function About() {
                 marginBottom: "32px",
               }}
             >
-              Opgericht door{" "}
+              {t.closingPre}
               <strong style={{ fontWeight: 500, color: "#2C2C2E" }}>
                 Bjorn Mosselman
               </strong>
-              . Gevestigd in de Hoeksche Waard, werkzaam in heel Nederland.
+              {t.closingPost}
             </p>
 
             {/* CTA */}

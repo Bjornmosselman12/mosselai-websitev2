@@ -1,27 +1,70 @@
-const steps = [
-  {
-    number: "01",
-    title: "We brengen je proces in kaart",
-    description:
-      "Geen pitch. Een eerlijk gesprek over jouw bedrijf en welk werk elke week terugkomt. Samen kijken we waar handwerk zit dat AI kan overnemen.",
+"use client";
+
+import { useLang } from "@/lib/i18n";
+
+type Step = { number: string; title: string; description: string };
+
+const STEPS: Record<"nl" | "en", Step[]> = {
+  nl: [
+    {
+      number: "01",
+      title: "We brengen je proces in kaart",
+      description:
+        "Geen pitch. Een eerlijk gesprek over jouw bedrijf en welk werk elke week terugkomt. Samen kijken we waar handwerk zit dat AI kan overnemen.",
+    },
+    {
+      number: "02",
+      title: "We bouwen in jouw software",
+      description:
+        "Eén taak, vier weken. We bouwen in de tools die je al gebruikt en passen aan tot het doet wat we vooraf hebben afgesproken. Onderhoud en updates inbegrepen.",
+    },
+    {
+      number: "03",
+      title: "Je betaalt pas bij resultaat",
+      description:
+        "De automatisering draait eerst mee in je dagelijkse werk. Pas daarna volgt de factuur, geen kosten vooraf. Je betaalt voor een resultaat, niet voor een traject.",
+    },
+  ],
+  en: [
+    {
+      number: "01",
+      title: "We map your process",
+      description:
+        "No pitch. An honest conversation about your business and which work comes back every week. Together we look for the manual work AI can take over.",
+    },
+    {
+      number: "02",
+      title: "We build inside your software",
+      description:
+        "One task, four weeks. We build in the tools you already use and refine it until it does what we agreed upfront. Maintenance and updates included.",
+    },
+    {
+      number: "03",
+      title: "You only pay on results",
+      description:
+        "The automation first runs along in your daily work. Only then comes the invoice, no upfront costs. You pay for a result, not for a project.",
+    },
+  ],
+};
+
+const T = {
+  nl: {
+    kicker: "Hoe het werkt",
+    heading: "Van eerste gesprek naar werkende automatisering.",
   },
-  {
-    number: "02",
-    title: "We bouwen in jouw software",
-    description:
-      "Eén taak, vier weken. We bouwen in de tools die je al gebruikt en passen aan tot het doet wat we vooraf hebben afgesproken. Onderhoud en updates inbegrepen.",
+  en: {
+    kicker: "How it works",
+    heading: "From first conversation to working automation.",
   },
-  {
-    number: "03",
-    title: "Je betaalt pas bij resultaat",
-    description:
-      "De automatisering draait eerst mee in je dagelijkse werk. Pas daarna volgt de factuur, geen kosten vooraf. Je betaalt voor een resultaat, niet voor een traject.",
-  },
-];
+};
 
 const PEEK = 22;
 
 export default function HowItWorks() {
+  const { lang } = useLang();
+  const steps = STEPS[lang];
+  const t = T[lang];
+
   return (
     <>
       <style>{`
@@ -105,7 +148,7 @@ export default function HowItWorks() {
               textTransform: "uppercase",
               marginBottom: "12px",
             }}>
-              Hoe het werkt
+              {t.kicker}
             </p>
             <h2 style={{
               color: "#1E3A5F",
@@ -114,7 +157,7 @@ export default function HowItWorks() {
               letterSpacing: "-0.02em",
               lineHeight: 1.2,
             }}>
-              Van eerste gesprek naar werkende automatisering.
+              {t.heading}
             </h2>
           </div>
 

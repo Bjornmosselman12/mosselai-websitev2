@@ -1,21 +1,38 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLang } from "@/lib/i18n";
 
 type Block = { kicker: string; title: string; desc: string };
 
-const blocks: Block[] = [
-  {
-    kicker: "Het probleem",
-    title: "Elke week opnieuw. Dezelfde taken, dezelfde uren kwijt.",
-    desc: "Orders verwerken, mails sorteren, gegevens overtypen, rapporten samenstellen. Het hoort erbij. Maar het levert geen klant op.",
-  },
-  {
-    kicker: "De oplossing",
-    title: "AI doet het handwerk. Jouw proces blijft.",
-    desc: "We kijken naar je bestaande workflow en bouwen alleen waar AI iets kan vervangen. Geen nieuwe software, geen ander uitziend resultaat. Alleen het handwerk in het midden is weg.",
-  },
-];
+const BLOCKS: Record<"nl" | "en", Block[]> = {
+  nl: [
+    {
+      kicker: "Het probleem",
+      title: "Elke week opnieuw. Dezelfde taken, dezelfde uren kwijt.",
+      desc: "Orders verwerken, mails sorteren, gegevens overtypen, rapporten samenstellen. Het hoort erbij. Maar het levert geen klant op.",
+    },
+    {
+      kicker: "De oplossing",
+      title: "AI doet het handwerk. Jouw proces blijft.",
+      desc: "We kijken naar je bestaande workflow en bouwen alleen waar AI iets kan vervangen. Geen nieuwe software, geen ander uitziend resultaat. Alleen het handwerk in het midden is weg.",
+    },
+  ],
+  en: [
+    {
+      kicker: "The problem",
+      title: "Every week again. The same tasks, the same hours gone.",
+      desc: "Processing orders, sorting emails, retyping data, compiling reports. It comes with the job. But it doesn't win you a single client.",
+    },
+    {
+      kicker: "The solution",
+      title: "AI does the manual work. Your process stays.",
+      desc: "We look at your existing workflow and build only where AI can replace something. No new software, no different-looking result. Only the manual work in the middle is gone.",
+    },
+  ],
+};
+
+const COUNT = 2;
 
 const SHARED_STYLE = `
   .mom-kicker {
@@ -61,6 +78,8 @@ export default function Momentum() {
   const trackRef = useRef<HTMLDivElement>(null);
   const dotsRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const { lang } = useLang();
+  const blocks = BLOCKS[lang];
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
@@ -87,7 +106,7 @@ export default function Momentum() {
 
       // Dwell per blok, dan een vloeiende overgang. Zo blijft elk blok even
       // staan voordat het doorschuift, net als het stappenplan eronder.
-      const N = blocks.length;
+      const N = COUNT;
       const seg = p * (N - 1);
       const i = Math.min(N - 2, Math.floor(seg));
       const f = seg - i;
@@ -137,7 +156,7 @@ export default function Momentum() {
       ref={sectionRef}
       style={{
         backgroundColor: "#1E3A5F",
-        height: `${blocks.length * 140}vh`,
+        height: `${COUNT * 140}vh`,
         position: "relative",
       }}
     >
@@ -175,7 +194,7 @@ export default function Momentum() {
           style={{
             display: "flex",
             height: "100%",
-            width: `${blocks.length * 100}vw`,
+            width: `${COUNT * 100}vw`,
             willChange: "transform",
           }}
         >

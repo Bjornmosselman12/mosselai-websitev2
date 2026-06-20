@@ -1,4 +1,7 @@
-import { ArrowRight, Mail } from "lucide-react";
+"use client";
+
+import { Mail } from "lucide-react";
+import { useLang } from "@/lib/i18n";
 
 function WhatsAppIcon() {
   return (
@@ -11,7 +14,28 @@ function WhatsAppIcon() {
 // {{ PLACEHOLDER: vervang door jouw WhatsApp-nummer (internationaal formaat, zonder +) }}
 const WHATSAPP_NUMBER = "31612382576";
 
+const T = {
+  nl: {
+    kicker: "Contact",
+    headingPre: "Welk werk kost jouw team ",
+    headingAccent: "elke week weer tijd?",
+    sub: "Vertel het me, ik kijk er gratis naar. Geen verkooppraatje, geen pitch. Gewoon een eerlijk gesprek over wat er bij jou automatisch kan lopen.",
+    whatsapp: "Stuur een WhatsApp",
+    waMessage: "Hoi Bjorn, ik wil graag weten wat jij voor mijn bedrijf kunt automatiseren.",
+  },
+  en: {
+    kicker: "Contact",
+    headingPre: "Which work costs your team ",
+    headingAccent: "time, week after week?",
+    sub: "Tell me, I'll look at it for free. No sales talk, no pitch. Just an honest conversation about what could run automatically at your business.",
+    whatsapp: "Send a WhatsApp",
+    waMessage: "Hi Bjorn, I'd like to know what you can automate for my business.",
+  },
+};
+
 export default function Contact() {
+  const { lang } = useLang();
+  const t = T[lang];
 
   return (
     <section
@@ -38,7 +62,7 @@ export default function Contact() {
           textTransform: "uppercase",
           marginBottom: "12px",
         }}>
-          Contact
+          {t.kicker}
         </p>
         <h2 style={{
           color: "#F5F1E8",
@@ -48,14 +72,14 @@ export default function Contact() {
           lineHeight: 1.2,
           marginBottom: "20px",
         }}>
-          Welk werk kost jouw team{" "}
+          {t.headingPre}
           <span style={{
             backgroundImage: "linear-gradient(90deg, #C5D7F0 0%, #4A7FC4 100%)",
             WebkitBackgroundClip: "text",
             backgroundClip: "text",
             color: "transparent",
           }}>
-            elke week weer tijd?
+            {t.headingAccent}
           </span>
         </h2>
         <p style={{
@@ -65,14 +89,12 @@ export default function Contact() {
           maxWidth: "560px",
           margin: "0 auto 44px",
         }}>
-          Vertel het me, ik kijk er gratis naar. Geen verkooppraatje,
-          geen pitch. Gewoon een eerlijk gesprek over wat er bij jou
-          automatisch kan lopen.
+          {t.sub}
         </p>
 
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "14px" }}>
           <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hoi%20Bjorn%2C%20ik%20wil%20graag%20weten%20wat%20jij%20voor%20mijn%20bedrijf%20kunt%20automatiseren.`}
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t.waMessage)}`}
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -90,7 +112,7 @@ export default function Contact() {
             className="contact-whatsapp"
           >
             <WhatsAppIcon />
-            Stuur een WhatsApp
+            {t.whatsapp}
           </a>
           <a
             href="mailto:info@mosselai.com"

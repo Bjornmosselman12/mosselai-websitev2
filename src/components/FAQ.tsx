@@ -2,42 +2,97 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { useLang } from "@/lib/i18n";
 
-const faqs = [
-  {
-    question: "Hoe weet ik of mijn bedrijf hier baat bij heeft?",
-    answer:
-      "Als jullie elke week dezelfde taken handmatig doen, is er ruimte om iets te automatiseren. In het eerste gesprek kijken we mee in jullie proces en zien we direct waar kansen zitten. Aan dat gesprek zijn geen kosten verbonden.",
+type QA = { question: string; answer: string };
+
+const FAQS: Record<"nl" | "en", QA[]> = {
+  nl: [
+    {
+      question: "Hoe weet ik of mijn bedrijf hier baat bij heeft?",
+      answer:
+        "Als jullie elke week dezelfde taken handmatig doen, is er ruimte om iets te automatiseren. In het eerste gesprek kijken we mee in jullie proces en zien we direct waar kansen zitten. Aan dat gesprek zijn geen kosten verbonden.",
+    },
+    {
+      question: "Wat is anders dan een SaaS-pakket of een vergelijkbare oplossing?",
+      answer:
+        "SaaS-pakketten dwingen hun eigen werkwijze op. Wij bouwen rond jullie bestaande proces. De software die je nu gebruikt blijft, de manier waarop jullie werken blijft, alleen het handwerk in het midden vervangen wij. Geen overstap, geen leertraject voor je team.",
+    },
+    {
+      question: "Waarom niet zelf met ChatGPT aan de slag?",
+      answer:
+        "Met ChatGPT moet jij of je team iedere keer aan de knoppen. Een prompt bedenken, output controleren, overzetten naar je eigen software. Bij ons draait het systeem zelfstandig in je bestaande omgeving. Geen prompts, geen kopiëren en plakken, geen iemand die het hoeft aan te sturen. Het werk wordt gedaan, ook 's nachts en in het weekend.",
+    },
+    {
+      question: "Wat betekent dit voor mijn team?",
+      answer:
+        "Niets ingewikkelds. Wij vervangen alleen het handwerk in het midden van een proces. De output blijft hetzelfde, de software blijft hetzelfde, het werk dat mensen interessant vinden blijft hetzelfde. Wat verdwijnt is het saaie repeterende werk dat niemand graag deed.",
+    },
+    {
+      question: "Wat als het niet werkt?",
+      answer:
+        "Dan betaal je niets. Vooraf leggen we samen vast wat \"werkt\" voor jullie betekent. Werkt de pilot niet zoals afgesproken, dan stopt het zonder factuur.",
+    },
+    {
+      question: "Wat kost het?",
+      answer:
+        "Afhankelijk van wat past in jullie situatie. Voor de ene klant werken we met een vast maandbedrag, voor de andere met een eenmalige bouw plus maandservice. In de verkenning kijken we welk model bij jullie aanpak past en stellen we het bedrag vooraf vast.",
+    },
+  ],
+  en: [
+    {
+      question: "How do I know if my business will benefit?",
+      answer:
+        "If you do the same tasks by hand every week, there's room to automate something. In the first conversation we look into your process and immediately see where the opportunities are. That conversation is free.",
+    },
+    {
+      question: "How is this different from a SaaS package or a similar solution?",
+      answer:
+        "SaaS packages impose their own way of working. We build around your existing process. The software you use now stays, the way you work stays, we only replace the manual work in the middle. No switching, no learning curve for your team.",
+    },
+    {
+      question: "Why not just use ChatGPT myself?",
+      answer:
+        "With ChatGPT, you or your team have to operate it every time. Think up a prompt, check the output, move it into your own software. With us the system runs on its own inside your existing environment. No prompts, no copy and paste, no one who has to steer it. The work gets done, even at night and on weekends.",
+    },
+    {
+      question: "What does this mean for my team?",
+      answer:
+        "Nothing complicated. We only replace the manual work in the middle of a process. The output stays the same, the software stays the same, the work people find interesting stays the same. What disappears is the dull, repetitive work no one liked doing.",
+    },
+    {
+      question: "What if it doesn't work?",
+      answer:
+        "Then you pay nothing. Upfront we define together what \"works\" means for you. If the pilot doesn't work as agreed, it stops without an invoice.",
+    },
+    {
+      question: "What does it cost?",
+      answer:
+        "It depends on what fits your situation. For one client we work with a fixed monthly fee, for another with a one-time build plus monthly service. In the assessment we look at which model fits your approach and set the amount upfront.",
+    },
+  ],
+};
+
+const T = {
+  nl: {
+    kicker: "Veelgestelde vragen",
+    heading: "Eerlijke antwoorden op eerlijke vragen.",
+    introPre: "Staat jouw vraag er niet bij? ",
+    introLink: "Stel hem gerust.",
   },
-  {
-    question: "Wat is anders dan een SaaS-pakket of een vergelijkbare oplossing?",
-    answer:
-      "SaaS-pakketten dwingen hun eigen werkwijze op. Wij bouwen rond jullie bestaande proces. De software die je nu gebruikt blijft, de manier waarop jullie werken blijft, alleen het handwerk in het midden vervangen wij. Geen overstap, geen leertraject voor je team.",
+  en: {
+    kicker: "Frequently asked questions",
+    heading: "Honest answers to honest questions.",
+    introPre: "Don't see your question? ",
+    introLink: "Just ask it.",
   },
-  {
-    question: "Waarom niet zelf met ChatGPT aan de slag?",
-    answer:
-      "Met ChatGPT moet jij of je team iedere keer aan de knoppen. Een prompt bedenken, output controleren, overzetten naar je eigen software. Bij ons draait het systeem zelfstandig in je bestaande omgeving. Geen prompts, geen kopiëren en plakken, geen iemand die het hoeft aan te sturen. Het werk wordt gedaan, ook 's nachts en in het weekend.",
-  },
-  {
-    question: "Wat betekent dit voor mijn team?",
-    answer:
-      "Niets ingewikkelds. Wij vervangen alleen het handwerk in het midden van een proces. De output blijft hetzelfde, de software blijft hetzelfde, het werk dat mensen interessant vinden blijft hetzelfde. Wat verdwijnt is het saaie repeterende werk dat niemand graag deed.",
-  },
-  {
-    question: "Wat als het niet werkt?",
-    answer:
-      "Dan betaal je niets. Vooraf leggen we samen vast wat \"werkt\" voor jullie betekent. Werkt de pilot niet zoals afgesproken, dan stopt het zonder factuur.",
-  },
-  {
-    question: "Wat kost het?",
-    answer:
-      "Afhankelijk van wat past in jullie situatie. Voor de ene klant werken we met een vast maandbedrag, voor de andere met een eenmalige bouw plus maandservice. In de verkenning kijken we welk model bij jullie aanpak past en stellen we het bedrag vooraf vast.",
-  },
-];
+};
 
 export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
+  const { lang } = useLang();
+  const faqs = FAQS[lang];
+  const t = T[lang];
 
   return (
     <section
@@ -65,7 +120,7 @@ export default function FAQ() {
                 marginBottom: "12px",
               }}
             >
-              Veelgestelde vragen
+              {t.kicker}
             </p>
             <h2
               style={{
@@ -77,15 +132,15 @@ export default function FAQ() {
                 marginBottom: "16px",
               }}
             >
-              Eerlijke antwoorden op eerlijke vragen.
+              {t.heading}
             </h2>
             <p style={{ color: "#5F5E5A", fontSize: "15px", lineHeight: 1.7 }}>
-              Staat jouw vraag er niet bij?{" "}
+              {t.introPre}
               <a
                 href="#contact"
                 style={{ color: "#1E3A5F", textDecoration: "underline" }}
               >
-                Stel hem gerust.
+                {t.introLink}
               </a>
             </p>
           </div>

@@ -1,12 +1,45 @@
-const navLinks = [
-  { label: "Hoe het werkt", href: "#hoe-het-werkt" },
-  { label: "Waarom ons", href: "#waarom" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Over ons", href: "#over" },
-  { label: "Contact", href: "#contact" },
+"use client";
+
+import { useLang } from "@/lib/i18n";
+
+const navHrefs: { key: "how" | "why" | "faq" | "about" | "contact"; href: string }[] = [
+  { key: "how", href: "#hoe-het-werkt" },
+  { key: "why", href: "#waarom" },
+  { key: "faq", href: "#faq" },
+  { key: "about", href: "#over" },
+  { key: "contact", href: "#contact" },
 ];
 
+const T = {
+  nl: {
+    tagline: "AI-automatisering voor ondernemers en bedrijven in de Hoeksche Waard.",
+    how: "Hoe het werkt",
+    why: "Waarom ons",
+    faq: "FAQ",
+    about: "Over ons",
+    contact: "Contact",
+    rights: "Alle rechten voorbehouden.",
+    terms: "Algemene voorwaarden",
+    privacy: "Privacyverklaring",
+  },
+  en: {
+    tagline: "AI automation for entrepreneurs and businesses in the Hoeksche Waard.",
+    how: "How it works",
+    why: "Why us",
+    faq: "FAQ",
+    about: "About",
+    contact: "Contact",
+    rights: "All rights reserved.",
+    terms: "Terms & conditions",
+    privacy: "Privacy policy",
+  },
+};
+
 export default function Footer() {
+  const { lang } = useLang();
+  const t = T[lang];
+  const navLinks = navHrefs.map((n) => ({ label: t[n.key], href: n.href }));
+
   return (
     <footer
       style={{
@@ -29,7 +62,6 @@ export default function Footer() {
           {/* Logo + tagline */}
           <div>
             <a href="#" style={{ display: "inline-block", marginBottom: "10px" }}>
-              {/* {{ PLACEHOLDER: vervang door <Image src="/logo.png" ... /> zodra logo beschikbaar is }} */}
               <span
                 style={{
                   color: "#1E3A5F",
@@ -41,7 +73,7 @@ export default function Footer() {
               </span>
             </a>
             <p style={{ color: "#5F5E5A", fontSize: "13px", maxWidth: "240px", lineHeight: 1.6 }}>
-              AI-automatisering voor ondernemers en bedrijven in de Hoeksche Waard.
+              {t.tagline}
             </p>
           </div>
 
@@ -78,16 +110,16 @@ export default function Footer() {
           }}
         >
           <p style={{ color: "#5F5E5A", fontSize: "12px" }}>
-            © {new Date().getFullYear()} MosselAI. Alle rechten voorbehouden.
+            © {new Date().getFullYear()} MosselAI. {t.rights}
           </p>
           <p style={{ color: "#5F5E5A", fontSize: "12px" }}>
             KvK: 97587214 · info@mosselai.com · Hoeksche Waard ·{" "}
             <a href="/voorwaarden" style={{ color: "#5F5E5A", textDecoration: "underline" }}>
-              Algemene voorwaarden
+              {t.terms}
             </a>
             {" "}·{" "}
             <a href="/privacy" style={{ color: "#5F5E5A", textDecoration: "underline" }}>
-              Privacyverklaring
+              {t.privacy}
             </a>
           </p>
         </div>

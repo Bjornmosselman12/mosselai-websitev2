@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useLang } from "@/lib/i18n";
 
 const tools = [
   { name: "Make",      src: "/logos/make.svg"      },
@@ -16,6 +17,7 @@ const tools = [
 const track = [...tools, ...tools, ...tools, ...tools];
 
 export default function TechStack() {
+  const { lang } = useLang();
   return (
     <section
       style={{
@@ -36,7 +38,7 @@ export default function TechStack() {
           fontWeight: 500,
         }}
       >
-        Gebouwd op bewezen tools
+        {lang === "en" ? "Built on proven tools" : "Gebouwd op bewezen tools"}
       </p>
 
       {/* Outer clip: alleen horizontaal hidden zodat de logos verticaal niet worden afgeknipt */}

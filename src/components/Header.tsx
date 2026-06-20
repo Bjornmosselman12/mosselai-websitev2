@@ -2,13 +2,33 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, LogIn } from "lucide-react";
+import { useLang, LangToggle } from "@/lib/i18n";
 
-const navLinks = [
-  { label: "Hoe het werkt", href: "/#hoe-het-werkt" },
-  { label: "Over ons", href: "/#over" },
-  { label: "Contact", href: "/#contact" },
-  { label: "FAQ", href: "/#faq" },
+const navHrefs: { key: "how" | "about" | "contact" | "faq"; href: string }[] = [
+  { key: "how", href: "/#hoe-het-werkt" },
+  { key: "about", href: "/#over" },
+  { key: "contact", href: "/#contact" },
+  { key: "faq", href: "/#faq" },
 ];
+
+const T = {
+  nl: {
+    how: "Hoe het werkt",
+    about: "Over ons",
+    contact: "Contact",
+    faq: "FAQ",
+    portal: "Klantportaal",
+    talk: "Plan een gesprek",
+  },
+  en: {
+    how: "How it works",
+    about: "About",
+    contact: "Contact",
+    faq: "FAQ",
+    portal: "Client portal",
+    talk: "Book a call",
+  },
+};
 
 // {{ PLACEHOLDER: vervang door jouw telefoonnummer }}
 const PHONE_NUMBER = "+31 6 12 38 25 76";
@@ -17,12 +37,16 @@ const PHONE_HREF = "tel:+31612382576";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { lang } = useLang();
+  const t = T[lang];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const navLinks = navHrefs.map((n) => ({ label: t[n.key], href: n.href }));
 
   return (
     <header
@@ -67,8 +91,10 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Desktop CTA's: telefoon + klantportaal, gegroepeerd rechts */}
-        <div className="header-cta" style={{ alignItems: "center", gap: "10px" }}>
+        {/* Desktop CTA's: taal, telefoon + klantportaal, gegroepeerd rechts */}
+        <div className="header-cta" style={{ alignItems: "center", gap: "18px" }}>
+          <LangToggle />
+
           <a
             href={PHONE_HREF}
             className="hover:opacity-90 transition-opacity duration-150"
@@ -104,12 +130,13 @@ export default function Header() {
             }}
           >
             <LogIn size={14} />
-            Klantportaal
+            {t.portal}
           </a>
         </div>
 
-        {/* Mobile: phone icon + hamburger */}
-        <div className="header-mobile" style={{ alignItems: "center", gap: "12px" }}>
+        {/* Mobile: taal + phone icon + hamburger */}
+        <div className="header-mobile" style={{ alignItems: "center", gap: "10px" }}>
+          <LangToggle />
           <a
             href={PHONE_HREF}
             style={{
@@ -171,7 +198,7 @@ export default function Header() {
               onClick={() => setMenuOpen(false)}
             >
               <LogIn size={15} />
-              Klantportaal
+              {t.portal}
             </a>
             <a
               href="/#contact"
@@ -187,7 +214,7 @@ export default function Header() {
               }}
               onClick={() => setMenuOpen(false)}
             >
-              Plan een gesprek
+              {t.talk}
             </a>
           </nav>
         </div>
